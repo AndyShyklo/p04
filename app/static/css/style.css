@@ -1,0 +1,32 @@
+h1{
+    color: white;
+}
+body{
+    background-color: rgb(0, 0, 0)
+}
+#globe{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background-image: url("https://vividmaps.com/wp-content/uploads/2021/07/world-map.jpg");
+    background-repeat: repeat;
+    background-position: center;
+    animation: rotate 5s linear infinite;
+    transition: transform 200ms linear;
+    transform-style: preserve-3d;
+    background-size: 914px;
+    border-radius: 50%;
+    box-shadow: 
+    inset 30px 0 90px 5px rgb(0, 0, 0), 
+    0px 0px 5px 5px rgba(141, 206, 255, 0.387);
+    filter: drop-shadow(0px 0px 20px rgba(0, 106, 181, 0.731));
+}
+
+@keyframes rotate{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 914 0;
+    }
+}
