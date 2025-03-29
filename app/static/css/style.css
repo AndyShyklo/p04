@@ -8,25 +8,25 @@ body{
     position: relative;
     height: 300px;
     width: 300px;
-    background-image: url("https://vividmaps.com/wp-content/uploads/2021/07/world-map.jpg");
+    background: #888 url('../assets/globe.jpg') 0 0 repeat;
+    /* background-image: url('../assets/globe.jpg');
     background-repeat: repeat;
-    background-position: center;
-    animation: rotate 5s linear infinite;
-    transition: transform 200ms linear;
+    background-position: 0 0; */
     transform-style: preserve-3d;
-    background-size: 914px;
+    background-size: 800px;
     border-radius: 50%;
+    transition: 0.15s ease-in-out;
     box-shadow: 
     inset 30px 0 90px 5px rgb(0, 0, 0), 
     0px 0px 5px 5px rgba(141, 206, 255, 0.387);
-    filter: drop-shadow(0px 0px 20px rgba(0, 106, 181, 0.731));
+    filter: drop-shadow(0px 0px 30px rgba(0, 106, 181, 0.884));
 }
 
-@keyframes rotate{
-    0%{
-        background-position: 0 0;
-    }
-    100%{
-        background-position: 914 0;
-    }
+#globe:hover{
+    transform:scale(1.2);
+    box-shadow:
+    inset 30px 0 120px 5px rgb(0, 0, 0), 
+    0px 0px 5px 5px rgba(141, 206, 255, 0.224);
+    filter: drop-shadow(0px 0px 50px rgba(0, 106, 181, 0.884));
+
 }
