@@ -1,21 +1,29 @@
+/* 
+Will Nzeuton, Andy Shyklo, Kyle Lee, Margie Cao
+JOY ACROSS BORDERS 🔥🔥😵‍💫 by madeinguatemala
+SoftDev
+p04
+2025-03-28 
+*/
+
 h1{
     color: white;
 }
 body{
-    background-color: rgb(0, 0, 0)
+    background-color: black;
 }
 #globe{
     position: relative;
     height: 300px;
     width: 300px;
-    background: #888 url('../assets/globe.jpg') 0 0 repeat;
+    background: #888 url('../assets/globe.jpg') 50% 50% repeat;
     /* background-image: url('../assets/globe.jpg');
     background-repeat: repeat;
     background-position: 0 0; */
     transform-style: preserve-3d;
     background-size: 800px;
     border-radius: 50%;
-    transition: 0.15s ease-in-out;
+    transition: background-position 0.1s ease-in-out, background-size 0s ease-out, transform 0.3s ease-in-out, filter 3s ease-in-out;
     box-shadow: 
     inset 30px 0 90px 5px rgb(0, 0, 0), 
     0px 0px 5px 5px rgba(141, 206, 255, 0.387);
@@ -26,7 +34,25 @@ body{
     transform:scale(1.2);
     box-shadow:
     inset 30px 0 120px 5px rgb(0, 0, 0), 
-    0px 0px 5px 5px rgba(141, 206, 255, 0.224);
+    0px 0px 5px 5px rgba(141, 206, 255, 0.387);
     filter: drop-shadow(0px 0px 50px rgba(0, 106, 181, 0.884));
 
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+    animation: twinkle 3s infinite ease-in-out;
+    box-shadow: 0px 0px 100px 0px rgba(255,255,255,1);
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
