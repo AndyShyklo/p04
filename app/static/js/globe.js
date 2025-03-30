@@ -7,17 +7,18 @@
 const globe = document.getElementById("globe");
 let globePosX = 50;
 let globePosY = 0;
-let globeZoom = 0.7;
+let scrollSens = 0.7;
 
 
 globe.style.backgroundPositionX = `${globePosX}px`;
 
 globe.addEventListener("wheel", (e) => {
     e.preventDefault();
-    
-    globeZoom += e.deltaY < 0 ? 0.05 : -0.05;
-    globeZoom = Math.max(globeZoom, 1.8)
-    globe.style.backgroundSize = `${800 * globeZoom}px`
+
+    globePosX -= e.deltaX * scrollSens;
+    globePosY -= e.deltaY * scrollSens;
+
+    globe.style.backgroundPosition = `${globePosX}px ${globePosY}px`;
 });
 
 function rotate(event) {

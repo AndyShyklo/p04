@@ -13,6 +13,7 @@ body{
     background-color: black;
 }
 #globe{
+    overflow: hidden;
     position: relative;
     height: 300px;
     width: 300px;
@@ -23,7 +24,7 @@ body{
     transform-style: preserve-3d;
     background-size: 800px;
     border-radius: 50%;
-    transition: background-position 0.1s ease-in-out, background-size 0s ease-out, transform 0.3s ease-in-out, filter 3s ease-in-out;
+    transition: background-position 0.02s ease-in-out, background-size 0s ease-out, transform 0.3s ease-in-out, filter 3s ease-in-out;
     box-shadow: 
     inset 30px 0 90px 5px rgb(0, 0, 0), 
     0px 0px 5px 5px rgba(141, 206, 255, 0.387);
@@ -33,7 +34,7 @@ body{
 #globe:hover{
     transform:scale(1.2);
     box-shadow:
-    inset 30px 0 120px 5px rgb(0, 0, 0), 
+    inset 30px 0 90px 5px rgb(0, 0, 0), 
     0px 0px 5px 5px rgba(141, 206, 255, 0.387);
     filter: drop-shadow(0px 0px 50px rgba(0, 106, 181, 0.884));
 
