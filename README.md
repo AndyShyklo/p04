@@ -27,3 +27,10 @@ $ git clone git@github.com:wnzeuton/p04.git
 This is an alternate method, if you don't prefer the Git Clone method. Go to the green button in the top right again that says "Code". Then, click "Download Zip". Finally, extract the ZIP file from your downloads and place it in your desired directory. 
 
 Reagardless of which method you choose, navigate to the repo folder and type ```$ pip install -r requirements.txt``` to install required dependencies
+
+
+## Launch 
+Head to the following website
+```
+p04.blasianwilly.tech
+```
