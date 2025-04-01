@@ -1,0 +1,5 @@
+willN -- 2025-03-31 22:51
+Revised Design Doc as follows:
+  - Designated more tasks to Devo Margie Cao
+  - Added explanations for tooling choices of ApexCharts, MongoDB, and Bootstrap
+  - Filled in missing description of certain components (previously glazed over)
