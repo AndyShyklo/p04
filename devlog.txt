@@ -1,3 +1,7 @@
+kyleL -- 2025-04-01 11:38
+  - Created a readme with installation guide, launch guide and a basic project description
+  - Added requirements.txt
+
 andyS -- 2025-03-30 15:04
   - Revised design document to adjust for MongoDB and storage implementation explanations
 
