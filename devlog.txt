@@ -1,13 +1,3 @@
-willN -- 2025-04-02 11:47
-  - Removed NGINX config files from github repo
-
-willN -- 2025-04-01 24:33
-  - Configured p04.blasianwilly.tech to serve p04 website successfully
-
-kyleL -- 2025-04-01 11:38
-  - Created a readme with installation guide, launch guide and a basic project description
-  - Added requirements.txt
-
 andyS -- 2025-03-30 15:04
   - Revised design document to adjust for MongoDB and storage implementation explanations
 
@@ -16,3 +6,13 @@ Revised Design Doc as follows:
   - Designated more tasks to Devo Margie Cao
   - Added explanations for tooling choices of ApexCharts, MongoDB, and Bootstrap
   - Filled in missing description of certain components (previously glazed over)
+
+kyleL -- 2025-04-01 11:38
+  - Created a readme with installation guide, launch guide and a basic project description
+  - Added requirements.txt
+
+willN -- 2025-04-01 24:33
+  - Configured p04.blasianwilly.tech to serve p04 website successfully
+
+willN -- 2025-04-02 11:47
+  - Removed NGINX config files from github repo
