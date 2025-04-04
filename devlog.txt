@@ -16,3 +16,7 @@ willN -- 2025-04-01 24:33
 
 willN -- 2025-04-02 11:47
   - Removed NGINX config files from github repo
+
+willN -- 2025-04-04 17:38
+  - Added navbar
+  - Began wiring up flask routes and basic user auth pages
