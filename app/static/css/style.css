@@ -6,6 +6,12 @@ p04
 2025-03-28 
 */
 
+:root {
+    --primary-color: #fffcf2;
+    --secondary-color: #403D39;
+    --background-color: #fffcf2;
+}
+
 @font-face {
     font-family: 'Nunito';
     src: url('../assets/fonts/nunito.ttf') format('truetype');
@@ -13,16 +19,26 @@ p04
     font-style: normal;
 }
 
+nav{
+    background-color: var(--secondary-color);
+}
+
 h1{
-    color: #1B263B;
+    color: var(--primary-color);
     font-weight: 700;
-    /* text-shadow: 2px 2px 0px #415A77; */
+    /* text-shadow:
+        0.5px 0.5px 0 var(--secondary-color),
+        1px 1px 0 var(--secondary-color),
+        1.5px 1.5px 0 var(--secondary-color),
+        2px 2px 0 var(--secondary-color); */
+    background-color: black;
+    text-align: center;
 }
 label{
     color: white;
 }
 body{
-    background-color: #E0E1DD;
+    background-color: var(--background-color);
     font-family: 'Nunito';
 }
 #globe{
