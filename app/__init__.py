@@ -22,6 +22,10 @@ def register():
         return render_template("index.html")
     return render_template("register.html")
 
+@app.route("/country/<country>")
+def country(country):
+    return render_template('country.html', country = country)
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host='0.0.0.0')
