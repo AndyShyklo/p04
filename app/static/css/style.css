@@ -6,14 +6,24 @@ p04
 2025-03-28 
 */
 
+@font-face {
+    font-family: 'Nunito';
+    src: url('../assets/fonts/nunito.ttf') format('truetype');
+    font-weight: 200 700;
+    font-style: normal;
+}
+
 h1{
-    color: white;
+    color: #1B263B;
+    font-weight: 700;
+    /* text-shadow: 2px 2px 0px #415A77; */
 }
 label{
     color: white;
 }
 body{
-    background-color: black;
+    background-color: #E0E1DD;
+    font-family: 'Nunito';
 }
 #globe{
     overflow: hidden;
