@@ -1,21 +1,67 @@
-import pymongo
+import os
+import pandas as pd
+from pymongo import MongoClient
 
-f = open("keys/mongodb.txt", "r")
+csv_path = "static/years"
 
-uri = f.read()
+with open("keys/mongodb.txt", "r") as f:
+    key = f.read().strip()
 
-client = MongoClient(uri)
+client = MongoClient(key)
+db = client.get_database("years")
 
-try:
-    database = client.get_database("sample_mflix")
-    movies = database.get_collection("movies")
+def init():
+    for filename in os.listdir(csv_path):
+        if filename.endswith(".csv"):
 
-    query = { "title": "Back to the Future" }
-    movie = movies.find_one(query)
+            filepath = os.path.join(csv_path, filename)
+            df = pd.read_csv(filepath)
 
-    print(movie)
+            rec = df.to_dict(orient='records')
 
-    client.close()
+            col_name = os.path.splitext(filename)[0]
 
-except Exception as e:
-    raise Exception("Unable to find the document due to the following error: ", e)
+            col = db.get_collection(col_name)
+
+            col.delete_many({}) #may need to remove
+
+            if rec:
+                col.insert_many(rec)
+                print(f"insert {len(rec)} recs into {col_name}")
+
+    print("data inserted")
+
+init()
+
+def get_col(year):
+    return (db[str(year)])
+
+print("2017 stats:")
+print(get_col(2017))
+
+def get_country(year, country):
+    col = get_col(year)
+    result = col.find_one({"Country or region": country})
+    return (result)
+
+print("2017 stats for norway:")
+print(get_country(2017, "Norway"))
+
+def get_happiness_score(year, country):
+    print(type(get_country(year, country)))
+    return(get_country(year, country).get("Score"))
+
+print("2017 stats for norway happiness score:")
+print(get_happiness_score(2017, "Norway"))
+
+def get_happiness_rank(year, country):
+    return(get_country(year, country).get("Overall rank"))
+
+print("2017 stats for norway happiness rank:")
+print(get_happiness_score(2017, "Norway"))
+
+def get_gdp_capita(year, country):
+    return(get_country(year, country).get("GDP per capita"))
+
+print("2017 stats for norway gdp per capita:")
+print(get_happiness_score(2017, "Norway"))
