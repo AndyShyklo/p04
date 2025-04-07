@@ -26,6 +26,12 @@ def register():
 def country(country):
     return render_template('country.html', country = country)
 
+@app.route("/map")
+def map():
+    return render_template('map.html')
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host='0.0.0.0')
+
+
