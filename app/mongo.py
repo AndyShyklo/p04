@@ -31,7 +31,7 @@ def init():
 
     print("data inserted")
 
-init()
+#init()
 
 def get_col(year):
     return (db[str(year)])
@@ -41,27 +41,59 @@ print(get_col(2017))
 
 def get_country(year, country):
     col = get_col(year)
-    result = col.find_one({"Country or region": country})
+    if (year > 2014 and year < 2018):
+        result = col.find_one({"Country": country})
+    elif (year > 2017 and year < 2020):
+        result = col.find_one({"Country or region": country})
     return (result)
 
 print("2017 stats for norway:")
 print(get_country(2017, "Norway"))
 
 def get_happiness_score(year, country):
-    print(type(get_country(year, country)))
-    return(get_country(year, country).get("Score"))
+    res = get_country(year, country)
+    if (year > 2014 and year < 2016):
+        result = res.get("Happiness Score")
+    elif (year == 2017):
+        result = res.get("Happiness.Score")
+    elif (year > 2017 and year < 2020):
+        result = res.get("Score")
+    print(type(result))
+    return(result)
 
 print("2017 stats for norway happiness score:")
 print(get_happiness_score(2017, "Norway"))
 
 def get_happiness_rank(year, country):
-    return(get_country(year, country).get("Overall rank"))
+    res = get_country(year, country)
+    if (year > 2014 and year < 2016):
+        result = res.get("Happiness Rank")
+    elif (year == 2017):
+        result = res.get("Happiness.Rank")
+    elif (year > 2017 and year < 2020):
+        result = res.get("Overall rank")
+    print(type(result))
+    return(result)
 
 print("2017 stats for norway happiness rank:")
-print(get_happiness_score(2017, "Norway"))
+print(get_happiness_rank(2017, "Norway"))
 
 def get_gdp_capita(year, country):
-    return(get_country(year, country).get("GDP per capita"))
+    res = get_country(year, country)
+    if (year > 2014 and year < 2016):
+        result = res.get("Economy (GDP per Capita)")
+    elif (year == 2017):
+        result = res.get("Economy..GDP.per.Capita.")
+    elif (year > 2017 and year < 2020):
+        result = res.get("GDP per capita")
+    print(type(result))
+    return(result)
 
 print("2017 stats for norway gdp per capita:")
-print(get_happiness_score(2017, "Norway"))
+print(get_gdp_capita(2017, "Norway"))
+
+def get_yearly(country):
+    #test
+
+def get_happiness_yearly(country):
+    res = get_yearly(country)
