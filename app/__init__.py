@@ -1,3 +1,4 @@
+
 # Will Nzeuton, Andy Shyklo, Kyle Lee, Margie Cao
 # JOY ACROSS BORDERS 🔥🔥😵‍💫 by madeinguatemala
 # SoftDev
@@ -13,15 +14,17 @@ app.secret_key = os.urandom(32)
 def home():
     return render_template("index.html")
 
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
-        username = request.form['username']
-        password = request.form['password']
-        print(username)
-        print(password)
-        return redirect("/login")
+        username = request.form['user']
+        password = request.form['pw']
+        return render_template("index.html")
     return render_template("register.html")
+
+@app.route("/country/<country>")
+def country(country):
+    return render_template('country.html', country = country)
 
 if __name__ == "__main__":
     app.debug = True
