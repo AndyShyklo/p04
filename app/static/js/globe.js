@@ -53,7 +53,7 @@ globe.addEventListener("mouseleave", () => {
 });
 
 function grow(){
-    globe.style.transform = "scale(10)";
+    globe.style.transform = "scale(6)";
     globe.style.backgroundPosition = `${globePosX + 1000}px ${globePosY + 50}px`;
     globe.style.transition = "1s";
     setTimeout(function() { window.location.href = "map" }, 900);
