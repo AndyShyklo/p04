@@ -1,3 +1,9 @@
+// Will Nzeuton, Andy Shyklo, Kyle Lee, Margie Cao
+// JOY ACROSS BORDERS 🔥🔥😵‍💫 by madeinguatemala
+// SoftDev
+// p04
+// 2025-03-28
+
 document.addEventListener("DOMContentLoaded", function () {
 
   const nav = document.getElementById("nav")

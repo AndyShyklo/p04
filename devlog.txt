@@ -20,3 +20,7 @@ willN -- 2025-04-02 11:47
 willN -- 2025-04-04 17:38
   - Added navbar
   - Began wiring up flask routes and basic user auth pages
+
+willN -- 2025-04-07 14:25
+  - Globe spins upon click redirecting to map page
+  - Map page exists and can register search (with autofill) for countries
