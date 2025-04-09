@@ -17,10 +17,27 @@ willN -- 2025-04-01 24:33
 willN -- 2025-04-02 11:47
   - Removed NGINX config files from github repo
 
+andyS -- 2025-04-04 11:48
+  - started creation of mongodb client and key 
+  - configured requirements
+  - configured gitignore
+
 willN -- 2025-04-04 17:38
   - Added navbar
   - Began wiring up flask routes and basic user auth pages
 
+andyS -- 2025-04-06 22:52
+  - populated mongodb database with world happiness data
+
+andyS -- 2025-04-07 11:48
+  - added functions and access methods for first 3 fields of years csv mongodb
+  - fixed up mongodb errors and formatting issues: mongo success!
+
 willN -- 2025-04-07 14:25
   - Globe spins upon click redirecting to map page
   - Map page exists and can register search (with autofill) for countries
+
+andyS -- 2025-04-09 0:42
+  - finished all of the access methods and functions for country data in mongodb
+  - finished yearly dictionaries and functions for data
+  - created test cases for each function
