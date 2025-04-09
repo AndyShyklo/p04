@@ -38,8 +38,8 @@ def init():
 def get_col(year):
     return (db[str(year)])
 
-print("2017 stats:")
-print(get_col(2017))
+# print("2017 stats:")
+# print(get_col(2017))
 
 def get_country(year, country):
     col = get_col(year)
@@ -49,8 +49,8 @@ def get_country(year, country):
         result = col.find_one({"Country or region": country})
     return (result)
 
-print("2017 stats for norway:")
-print(get_country(2017, "Norway"))
+# print("2017 stats for norway:")
+# print(get_country(2017, "Norway"))
 
 def get_happiness_score(year, country):
     res = get_country(year, country)
@@ -64,8 +64,8 @@ def get_happiness_score(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway happiness score:")
-print(get_happiness_score(2017, "Norway"))
+# print("2017 stats for norway happiness score:")
+# print(get_happiness_score(2017, "Norway"))
 
 def get_happiness_rank(year, country):
     res = get_country(year, country)
@@ -79,8 +79,8 @@ def get_happiness_rank(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway happiness rank:")
-print(get_happiness_rank(2017, "Norway"))
+# print("2017 stats for norway happiness rank:")
+# print(get_happiness_rank(2017, "Norway"))
 
 def get_gdp_capita(year, country):
     res = get_country(year, country)
@@ -94,8 +94,8 @@ def get_gdp_capita(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway gdp per capita:")
-print(get_gdp_capita(2017, "Norway"))
+# print("2017 stats for norway gdp per capita:")
+# print(get_gdp_capita(2017, "Norway"))
 
 def get_health(year, country):
     res = get_country(year, country)
@@ -109,8 +109,8 @@ def get_health(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway health life expectancy:")
-print(get_health(2017, "Norway"))
+# print("2017 stats for norway health life expectancy:")
+# print(get_health(2017, "Norway"))
 
 def get_family(year, country):
     res = get_country(year, country)
@@ -122,8 +122,8 @@ def get_family(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway family:")
-print(get_family(2017, "Norway"))
+# print("2017 stats for norway family:")
+# print(get_family(2017, "Norway"))
 
 def get_freedom(year, country):
     res = get_country(year, country)
@@ -135,8 +135,8 @@ def get_freedom(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway freedom:")
-print(get_freedom(2017, "Norway"))
+# print("2017 stats for norway freedom:")
+# print(get_freedom(2017, "Norway"))
 
 def get_gov_trust(year, country):
     res = get_country(year, country)
@@ -150,8 +150,8 @@ def get_gov_trust(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway trust and gov corruption:")
-print(get_gov_trust(2017, "Norway"))
+# print("2017 stats for norway trust and gov corruption:")
+# print(get_gov_trust(2017, "Norway"))
 
 def get_generosity(year, country):
     res = get_country(year, country)
@@ -161,8 +161,8 @@ def get_generosity(year, country):
         result = "Error"
     return(result)
 
-print("2017 stats for norway generosity:")
-print(get_generosity(2017, "Norway"))
+# print("2017 stats for norway generosity:")
+# print(get_generosity(2017, "Norway"))
 
 def get_yearly(country):
     dict_res = {}
@@ -170,8 +170,8 @@ def get_yearly(country):
         dict_res[year] = get_country(year, country)
     return(dict_res)
 
-print("all stats for all years norway")
-print(get_yearly("Norway"))
+# print("all stats for all years norway")
+# print(get_yearly("Norway"))
 
 def get_happiness_score_yearly(country):
     dict_res = {}
@@ -179,8 +179,8 @@ def get_happiness_score_yearly(country):
         dict_res[year] = get_happiness_score(year, country)
     return(dict_res)
 
-print("happiness score stat for all years norway")
-print(get_happiness_score_yearly("Norway"))
+# print("happiness score stat for all years norway")
+# print(get_happiness_score_yearly("Norway"))
 
 def get_happiness_rank_yearly(country):
     dict_res = {}
@@ -188,8 +188,8 @@ def get_happiness_rank_yearly(country):
         dict_res[year] = get_happiness_rank(year, country)
     return(dict_res)
 
-print("happiness rank stat for all years norway")
-print(get_happiness_rank_yearly("Norway"))
+# print("happiness rank stat for all years norway")
+# print(get_happiness_rank_yearly("Norway"))
 
 def get_gdp_per_capita_yearly(country):
     dict_res = {}
@@ -197,8 +197,8 @@ def get_gdp_per_capita_yearly(country):
         dict_res[year] = get_gdp_capita(year, country)
     return(dict_res)
 
-print("gdp per capita stat for all years norway")
-print(get_gdp_per_capita_yearly("Norway"))
+# print("gdp per capita stat for all years norway")
+# print(get_gdp_per_capita_yearly("Norway"))
 
 def get_health_yearly(country):
     dict_res = {}
@@ -206,8 +206,8 @@ def get_health_yearly(country):
         dict_res[year] = get_health(year, country)
     return(dict_res)
 
-print("health stat for all years norway")
-print(get_health_yearly("Norway"))
+# print("health stat for all years norway")
+# print(get_health_yearly("Norway"))
 
 def get_family_yearly(country):
     dict_res = {}
@@ -215,8 +215,8 @@ def get_family_yearly(country):
         dict_res[year] = get_family(year, country)
     return(dict_res)
 
-print("family stat for all years norway")
-print(get_family_yearly("Norway"))
+# print("family stat for all years norway")
+# print(get_family_yearly("Norway"))
 
 def get_freedom_yearly(country):
     dict_res = {}
@@ -224,8 +224,8 @@ def get_freedom_yearly(country):
         dict_res[year] = get_freedom(year, country)
     return(dict_res)
 
-print("freedom stat for all years norway")
-print(get_freedom_yearly("Norway"))
+# print("freedom stat for all years norway")
+# print(get_freedom_yearly("Norway"))
 
 def get_generosity_yearly(country):
     dict_res = {}
@@ -233,8 +233,8 @@ def get_generosity_yearly(country):
         dict_res[year] = get_generosity(year, country)
     return(dict_res)
 
-print("generosity stat for all years norway")
-print(get_generosity_yearly("Norway"))
+# print("generosity stat for all years norway")
+# print(get_generosity_yearly("Norway"))
 
 def get_gov_trust_yearly(country):
     dict_res = {}
@@ -242,5 +242,5 @@ def get_gov_trust_yearly(country):
         dict_res[year] = get_gov_trust(year, country)
     return(dict_res)
 
-print("gov trust stat for all years norway")
-print(get_gov_trust_yearly("Norway"))
+# print("gov trust stat for all years norway")
+# print(get_gov_trust_yearly("Norway"))

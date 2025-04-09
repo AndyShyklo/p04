@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <li class="nav-item">
           <a class="nav-link" href="/settings">⚙</a>
         </li>
-        
+
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -34,3 +34,20 @@ document.addEventListener("DOMContentLoaded", function () {
   </nav>`
 
 });
+
+function openStat(evt, stat) {
+  var i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}

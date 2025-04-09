@@ -5,6 +5,7 @@
 # p04
 # 2025-03-28
 from flask import Flask, render_template, request, redirect
+from mongo import *
 import os
 
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def register():
 
 @app.route("/country/<country>")
 def country(country):
-    return render_template('country.html', country = country)
+    return render_template('country.html', country = country, happiness = get_happiness_score_yearly(country), freedom = get_freedom_yearly(country), health = get_health_yearly(country))
 
 @app.route("/map")
 def map():
@@ -33,5 +34,3 @@ def map():
 if __name__ == "__main__":
     app.debug = True
     app.run(host='0.0.0.0')
-
-
