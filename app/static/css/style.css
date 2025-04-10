@@ -34,9 +34,11 @@ h1{
     background-color: black;
     text-align: center;
 }
+
 label{
-    color: white;
+    color: var(--secondary-color);
 }
+
 body{
     background-color: var(--background-color);
     font-family: 'Nunito';
@@ -88,6 +90,7 @@ body{
 #suggestions-list li:nth-child(n+15){
     display: none;
 }
+
 
 .tab {
  overflow: hidden;
