@@ -51,3 +51,13 @@ andyS -- 2025-04-10 2:19
   - altered nav bar and html elements to add logout and country.html
   - added js elements to better match the aesthetics of the website
   - added error messages throughout files
+
+DESIGN REVISIONS THUS FAR:
+------------------------------------
+  - Designated more tasks to Devo Margie Cao
+  - Added explanations for tooling choices of ApexCharts, MongoDB, and Bootstrap
+  - Filled in missing description of certain components (previously glazed over)
+  - Interactive 3D globe changed to interactive 2D map
+  - Specificed weather.gov API
+  - Added weather information to each country page
+====================================
