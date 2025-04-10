@@ -1,9 +1,9 @@
-/* 
+/*
 Will Nzeuton, Andy Shyklo, Kyle Lee, Margie Cao
 JOY ACROSS BORDERS 🔥🔥😵‍💫 by madeinguatemala
 SoftDev
 p04
-2025-03-28 
+2025-03-28
 */
 
 :root {
@@ -56,8 +56,8 @@ body{
     background-size: 800px;
     border-radius: 50%;
     transition: background-position 0.02s ease-in-out, background-size 0s ease-out, transform 0.3s ease-in-out, filter 3s ease-in-out;
-    box-shadow: 
-    inset 30px 0 90px 5px rgb(0, 0, 0), 
+    box-shadow:
+    inset 30px 0 90px 5px rgb(0, 0, 0),
     0px 0px 5px 5px rgba(141, 206, 255, 0.387);
     filter: drop-shadow(0px 0px 30px rgba(0, 106, 181, 0.884));
 }
@@ -65,7 +65,7 @@ body{
 #globe:hover{
     transform:scale(1.2);
     box-shadow:
-    inset 30px 0 90px 5px rgb(0, 0, 0), 
+    inset 30px 0 90px 5px rgb(0, 0, 0),
     0px 0px 5px 5px rgba(141, 206, 255, 0.387);
     filter: drop-shadow(0px 0px 50px rgba(0, 106, 181, 0.884));
 
@@ -89,4 +89,36 @@ body{
 
 #suggestions-list li:nth-child(n+15){
     display: none;
+}
+
+
+.tab {
+ overflow: hidden;
+ border: 1px solid #ccc;
+ background-color: #f1f1f1;
+}
+
+.tab button {
+ background-color: inherit;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 14px 16px;
+ transition: 0.3s;
+}
+
+.tab button:hover {
+ background-color: #ddd;
+}
+
+.tab button.active {
+ background-color: #ccc;
+}
+
+.tabcontent {
+ display: none;
+ padding: 6px 12px;
+ border: 1px solid #ccc;
+ border-top: none;
 }
