@@ -17,9 +17,9 @@ def auth_user(username, password):
 
     if auth == None:
         print("Invalid login")
-        return(False)
+        return([False, "Invalid login"])
     else:
-        return(True)
+        return([True, None])
 
 def make_user(username, password):
     db = client.get_database("users")
@@ -31,7 +31,7 @@ def make_user(username, password):
 
     if auth == None:
         col.insert_one({"username": username, "password": password})
-        return(True)
+        return([True, None])
     else:
         print("Username Taken")
-        return(False)
+        return([False, "Username Taken"])

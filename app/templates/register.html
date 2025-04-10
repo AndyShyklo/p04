@@ -13,7 +13,10 @@ p04
         <title>Register</title>
     </head>
     <body>
-        <h1>REGISTER TO ACCESS <b>JOY ACROSS BORDERS 🔥🔥😵‍💫<b></h1>        
+        <h1>REGISTER TO ACCESS <b>JOY ACROSS BORDERS 🔥🔥😵‍💫<b></h1>   
+            {% if error %}
+            <h2>{{error}}</h2>
+            {% endif %}     
         <form method="POST">
 	    <label for="user">Username:</label>
 	    <br>

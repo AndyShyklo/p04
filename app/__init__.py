@@ -24,12 +24,12 @@ def register():
         username = request.form['user']
         password = request.form['pw']
         auth = make_user(username, password)
-        if auth:
+        if auth[0]:
             session["username"] = username
             session["password"] = password
             return redirect(url_for("home"))
         else:
-            return render_template("register.html")
+            return render_template("register.html", error = auth[1])
     return render_template("register.html")
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -38,12 +38,12 @@ def login():
         username = request.form['user']
         password = request.form['pw']
         auth = auth_user(username, password)
-        if auth:
+        if auth[0]:
             session["username"] = username
             session["password"] = password
             return redirect(url_for("home"))
         else:
-            return render_template("login.html")
+            return render_template("login.html", error = auth[1])
     return render_template("login.html")
 
 @app.route("/logout", methods=['GET', 'POST'])

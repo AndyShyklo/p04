@@ -50,3 +50,4 @@ andyS -- 2025-04-10 2:19
   - edited list of countries in search.js
   - altered nav bar and html elements to add logout and country.html
   - added js elements to better match the aesthetics of the website
+  - added error messages throughout files
