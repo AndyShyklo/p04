@@ -17,10 +17,21 @@ willN -- 2025-04-01 24:33
 willN -- 2025-04-02 11:47
   - Removed NGINX config files from github repo
 
+margieC -- 2025-04-02 11:41
+  - Created all required templates 
+  - Started register page
+
+margieC -- 2025-04-03 11:47
+  - Added route to register page
+  - Finished HTML template for register
+
 andyS -- 2025-04-04 11:48
   - started creation of mongodb client and key 
   - configured requirements
   - configured gitignore
+
+margieC -- 2025-04-04 11:48
+  - added redirection back to home page for register
 
 willN -- 2025-04-04 17:38
   - Added navbar
@@ -42,6 +53,9 @@ andyS -- 2025-04-09 0:42
   - finished yearly dictionaries and functions for data
   - created test cases for each function
 
+margieC -- 2025-04-09 11:47
+  - finished login page routing and template
+
 andyS -- 2025-04-10 2:19
   - added happiness country access functions
   - created and configured user mongodb access
@@ -51,3 +65,13 @@ andyS -- 2025-04-10 2:19
   - altered nav bar and html elements to add logout and country.html
   - added js elements to better match the aesthetics of the website
   - added error messages throughout files
+
+DESIGN REVISIONS THUS FAR:
+------------------------------------
+  - Designated more tasks to Devo Margie Cao
+  - Added explanations for tooling choices of ApexCharts, MongoDB, and Bootstrap
+  - Filled in missing description of certain components (previously glazed over)
+  - Interactive 3D globe changed to interactive 2D map
+  - Specificed weather.gov API
+  - Added weather information to each country page
+====================================
