@@ -17,6 +17,10 @@ p04
         <div id="nav"></div>
         <h1><b>JOY ACROSS BORDERS 🔥🔥😵‍💫<b></h1>
         
+        {% if error %}
+        <h2>{{error}}</h2>
+        {% endif %}
+
         <section style = "margin: auto 50px">
             <div class="input-group" id="">
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-input"/>

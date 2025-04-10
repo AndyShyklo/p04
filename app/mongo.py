@@ -244,3 +244,29 @@ def get_gov_trust_yearly(country):
 
 # print("gov trust stat for all years norway")
 # print(get_gov_trust_yearly("Norway"))
+
+def get_countries():
+    arr = []
+    for year in years:
+        col = get_col(year)
+        if (year > 2014 and year < 2018):
+            cur = col.find({}, {"Country": 1, "_id": 0})
+        else:
+            cur = col.find({}, {"Country or region": 1, "_id": 0})
+        print(cur)
+        for a in cur:
+            if (year > 2014 and year < 2018):
+                b = a.get("Country")
+                if b not in arr:
+                    arr.append(b)
+            else:
+                b = a.get("Country or region")
+                if b not in arr:
+                    arr.append(b)
+    print(arr)
+    print(len(arr))
+    arr.sort()
+    print(arr)
+    return(arr)
+
+get_countries()

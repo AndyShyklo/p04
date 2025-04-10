@@ -41,3 +41,12 @@ andyS -- 2025-04-09 0:42
   - finished all of the access methods and functions for country data in mongodb
   - finished yearly dictionaries and functions for data
   - created test cases for each function
+
+andyS -- 2025-04-10 2:19
+  - added happiness country access functions
+  - created and configured user mongodb access
+  - created login, register, and logout methods
+  - configured flask and sessions to accomodate for users
+  - edited list of countries in search.js
+  - altered nav bar and html elements to add logout and country.html
+  - added js elements to better match the aesthetics of the website

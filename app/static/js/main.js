@@ -30,6 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+
+      <form class="form-inline my-2 my-lg-0" method="POST" action="/logout">
+        <button class="btn btn-outline-success my-2 my-sm-0" aria-label="Logout" type="submit">Logout</button>
+      </form>
     </div>
   </nav>`
 
@@ -48,6 +52,6 @@ function openStat(evt, stat) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
 
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(stat).style.display = "block";
   evt.currentTarget.className += " active";
 }
