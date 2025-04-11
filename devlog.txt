@@ -75,3 +75,8 @@ DESIGN REVISIONS THUS FAR:
   - Specificed weather.gov API
   - Added weather information to each country page
 ====================================
+
+andyS -- 2025-04-11 1:19
+  - created methods for mongo database sync
+  - merged both the search and mongodb databases to match
+  - fixed some inconsistencies in happiness database

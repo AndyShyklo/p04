@@ -174,73 +174,113 @@ def get_yearly(country):
 # print(get_yearly("Norway"))
 
 def get_happiness_score_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_happiness_score(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_happiness_score(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} happiness score")
+        return(dict_res)
 
 # print("happiness score stat for all years norway")
 # print(get_happiness_score_yearly("Norway"))
 
 def get_happiness_rank_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_happiness_rank(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_happiness_rank(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} happiness rank")
+        return(dict_res)
 
 # print("happiness rank stat for all years norway")
 # print(get_happiness_rank_yearly("Norway"))
 
 def get_gdp_per_capita_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_gdp_capita(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_gdp_capita(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} gdp per capita")
+        return(dict_res)
 
 # print("gdp per capita stat for all years norway")
 # print(get_gdp_per_capita_yearly("Norway"))
 
 def get_health_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_health(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_health(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} health")
+        return(dict_res)
 
 # print("health stat for all years norway")
 # print(get_health_yearly("Norway"))
 
 def get_family_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_family(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_family(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} family")
+        return(dict_res)
 
 # print("family stat for all years norway")
 # print(get_family_yearly("Norway"))
 
 def get_freedom_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_freedom(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_freedom(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} freedom")
+        return(dict_res)
 
 # print("freedom stat for all years norway")
 # print(get_freedom_yearly("Norway"))
 
 def get_generosity_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_generosity(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_generosity(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} generosity")
+        return(dict_res)
 
 # print("generosity stat for all years norway")
 # print(get_generosity_yearly("Norway"))
 
 def get_gov_trust_yearly(country):
-    dict_res = {}
-    for year in years:
-        dict_res[year] = get_gov_trust(year, country)
-    return(dict_res)
+    if country_exists(country):
+        dict_res = {}
+        for year in years:
+            try:
+                a = get_gov_trust(year, country)
+                dict_res[year] = a
+            except:
+                print(f"couldnt add data for {year} and {country} gov trust")
+        return(dict_res)
 
 # print("gov trust stat for all years norway")
 # print(get_gov_trust_yearly("Norway"))
@@ -253,7 +293,7 @@ def get_countries():
             cur = col.find({}, {"Country": 1, "_id": 0})
         else:
             cur = col.find({}, {"Country or region": 1, "_id": 0})
-        print(cur)
+        # print(cur)
         for a in cur:
             if (year > 2014 and year < 2018):
                 b = a.get("Country")
@@ -263,10 +303,29 @@ def get_countries():
                 b = a.get("Country or region")
                 if b not in arr:
                     arr.append(b)
-    print(arr)
-    print(len(arr))
+    # print(arr)
+    # print(len(arr))
     arr.sort()
-    print(arr)
+    # print(arr)
     return(arr)
 
-get_countries()
+country_array = get_countries()
+
+def country_exists(country):
+    if country in country_array:
+        return True
+    else:
+        return False
+
+def find_diff():
+    countryList = ['Afghanistan', 'Albania', 'Algeria', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahrain', 'Bangladesh', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo (Brazzaville)', 'Congo (Kinshasa)', 'Costa Rica', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Guinea', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Ivory Coast', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Cyprus', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palestinian Territories', 'Panama', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saudi Arabia', 'Senegal', 'Serbia', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Somalia', 'Somaliland', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']
+
+    listErr = [c for c in countryList if c not in country_array]
+    arrayErr = [c for c in country_array if c not in countryList]
+
+    print(listErr)
+    print(arrayErr)
+
+find_diff()
+
+print(country_array)
