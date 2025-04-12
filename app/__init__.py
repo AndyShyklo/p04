@@ -6,6 +6,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from mongo import *
 from users import *
+from rankings import *
 import os
 
 
@@ -58,10 +59,27 @@ def country(country):
     if (session.get("username") is None or session.get("password") is None):
         return redirect(url_for("login"))
     if country in get_countries():
-        return render_template('country.html', country = country, happiness = get_happiness_score_yearly(country), freedom = get_freedom_yearly(country), health = get_health_yearly(country), corruption = get_gov_trust_yearly(country))
+        if_rank = check_if_ranking(session.get("username"), country)
+        avg = calculate_rankings(country)
+        stars = round(avg)
+        num_reviews = num_rankings(country)
+        return render_template('country.html', country = country, if_rank = if_rank, avg = avg, stars = stars, num_reviews = num_reviews, happiness = get_happiness_score_yearly(country), rank = get_happiness_rank_yearly(country), gdp = get_gdp_per_capita_yearly(country), freedom = get_freedom_yearly(country), health = get_health_yearly(country), corruption = get_gov_trust_yearly(country), family = get_family_yearly(country), generosity = get_generosity_yearly(country))
     else:
         session["error"] = "Country does not have data"
         return redirect(url_for("map"))
+    
+@app.route("/submit_rev", methods=["POST"])
+def submit_rev():
+    rating = request.form.get("rating")
+    country = request.form.get("country")
+    username = session.get("username")
+
+    print(f"rating: {rating}", flush=True)
+    print(f"country: {country}", flush=True)
+
+    make_ranking(username, country, rating)
+
+    return(redirect(url_for("country", country=country)))
 
 @app.route("/map")
 def map():

@@ -19,16 +19,89 @@ p04
 
         <script src = "../static/js/main.js"></script>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        {% for i in range(stars) %}
+          <span class="fa fa-star checked"></span>
+        {% endfor %}
+        {% for i in range(5-stars) %}
+          <span class="fa fa-star"></span>
+        {% endfor %}
+        <span>({{num_reviews}})</span>
+        <p>Review average of {{avg}} with a total of {{num_reviews}} reviews</p>
+
+        {% if if_rank %}
+          <button class="rev">Leave review</button>
+          <div class="content">
+            <br>
+            <p>Select general rating of {{country}}: </p>
+            <form action="/submit_rev" method="POST" class="star-review-form">
+              <div class="star-rating"> 
+                <button type="submit" class="review">Leave a review</button>
+                <input type="radio" id="star1" name="rating" value="5" required />
+                <label class="star-label" for="star1">★</label>
+            
+                <input type="radio" id="star2" name="rating" value="4" />
+                <label class="star-label" for="star2">★</label>
+            
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label class="star-label" for="star3">★</label>
+            
+                <input type="radio" id="star4" name="rating" value="2" />
+                <label class="star-label" for="star4">★</label>
+            
+                <input type="radio" id="star5" name="rating" value="1" />
+                <label class="star-label" for="star5">★</label>
+            
+                <input type="hidden" name="country" value="{{ country }}">
+
+              </div>
+            </form>          
+            <br>
+            <br>
+          </div>
+        {% endif %}
+
+        <script>
+        var coll = document.getElementsByClassName("rev");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+
+        <div class="content">
+          
+        </div>
+
         <div class="tab">
-          <button class="tablinks" onclick="openStat(event, 'Happiness')">Happiness</button>
+          <button class="tablinks" onclick="openStat(event, 'Happiness')">Happiness Score</button>
+          <button class="tablinks" onclick="openStat(event, 'Rank')">Happiness Rank</button>
+          <button class="tablinks" onclick="openStat(event, 'GDP')">GDP per Capita</button>
           <button class="tablinks" onclick="openStat(event, 'Freedom')">Freedom</button>
           <button class="tablinks" onclick="openStat(event, 'Health')">Life Expectancy</button>
           <button class="tablinks" onclick="openStat(event, 'Corruption')">Corruption</button>
+          <button class="tablinks" onclick="openStat(event, 'Family')">Family</button>
+          <button class="tablinks" onclick="openStat(event, 'Generosity')">Generosity</button>
         </div>
 
         <div id="Happiness" class="tabcontent">
-          <h3>Happiness</h3>
+          <h3>Happiness Score</h3>
           <p>{{happiness}}</p>
+        </div>
+
+        <div id="Rank" class="tabcontent">
+          <h3>Happiness Rank</h3>
+          <p>{{rank}}</p>
         </div>
 
         <div id="Freedom" class="tabcontent">
@@ -42,8 +115,23 @@ p04
         </div>
 
         <div id="Corruption" class="tabcontent">
-          <h3>Corruption</h3>
+          <h3>Government Trust (Corruption)</h3>
           <p>{{corruption}}</p>
+        </div>
+
+        <div id="GDP" class="tabcontent">
+          <h3>GDP per Capita</h3>
+          <p>{{gdp}}</p>
+        </div>
+
+        <div id="Family" class="tabcontent">
+          <h3>Family</h3>
+          <p>{{family}}</p>
+        </div>
+
+        <div id="Generosity" class="tabcontent">
+          <h3>Generosity</h3>
+          <p>{{generosity}}</p>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
