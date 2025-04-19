@@ -80,3 +80,10 @@ andyS -- 2025-04-11 1:19
   - created methods for mongo database sync
   - merged both the search and mongodb databases to match
   - fixed some inconsistencies in happiness database
+
+andyS -- 2025-04-12 3:23
+  - created review system in database
+  - added functionality for users to make country reviews via html
+  - added login/register variability
+  - made new access functions for rankings and merged with __init__.py
+  - researched JS to python link for map (code --> country)

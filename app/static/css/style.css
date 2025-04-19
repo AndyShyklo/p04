@@ -122,3 +122,64 @@ body{
  border: 1px solid #ccc;
  border-top: none;
 }
+
+.checked {
+    color: orange;
+}
+
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    position: relative;
+    margin-top: 10px;
+}
+  
+.star-rating input[type="radio"] {
+    display: none;
+}
+  
+.star-label {
+    font-size: 2rem;
+    color: #bbb;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+  
+.star-rating input[type="radio"]:checked ~ .star-label {
+    color: gold;
+}
+  
+.star-label:hover,
+.star-label:hover ~ .star-label {
+    color: goldenrod;
+}
+  
+.star-rating input[type="radio"]:focus-visible + .star-label {
+    outline-offset: 2px;
+    outline: 2px solid #4f46e5;
+}
+
+.rev {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+  
+.active, .rev:hover {
+    background-color: #555;
+}
+  
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
