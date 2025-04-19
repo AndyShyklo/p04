@@ -2,7 +2,8 @@ import os
 import pandas as pd
 from pymongo import MongoClient
 
-with open("keys/mongodb.txt", "r") as f:
+dir_path = os.path.dirname(__file__)
+with open(os.path.join(dir_path, "keys", "mongodb.txt"), "r") as f:
     key = f.read().strip()
 
 client = MongoClient(key)
