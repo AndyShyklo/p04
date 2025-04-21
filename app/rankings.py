@@ -12,7 +12,7 @@ def make_ranking(username, country, ranking):
     db = client.get_database("ratings")
     col = db.get_collection("ratings")
 
-    auth = check_if_ranking(username, country) 
+    auth = check_if_ranking(username, country)
 
     print("started making", flush=True)
     print(auth, flush=True)
@@ -23,19 +23,19 @@ def make_ranking(username, country, ranking):
     else:
         print("Failed: Review completed already")
         return([False, "Failed: Review already completed"])
-    
+
 def check_if_ranking(username, country):
     db = client.get_database("ratings")
     col = db.get_collection("ratings")
 
     auth = col.find_one({"username": username, "country": country})
     print(auth, flush=True)
-    
+
     if auth == None:
         return True
     else:
         return False
-    
+
 def calculate_rankings(country):
     db = client.get_database("ratings")
     col = db.get_collection("ratings")
@@ -49,7 +49,7 @@ def calculate_rankings(country):
         if "ranking" in doc:
             total += int(doc["ranking"])
             i += 1
-    
+
     if (not (i == 0)):
         avg = total / i
     else:
@@ -75,5 +75,19 @@ def num_rankings(country):
             i += 1
 
     print("i:", i, flush=True)
-    
+
     return(i)
+
+def get_rankings(username):
+    db = client.get_database("ratings")
+    col = db.get_collection("ratings")
+
+    cur = col.find({"username": username}, {"country": 1, "ranking": 1, "_id": 0})
+
+    docs = []
+
+    for doc in cur:
+        print(doc)
+        docs.append(doc)
+
+    return(docs)

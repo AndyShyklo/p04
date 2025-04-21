@@ -71,7 +71,7 @@ def country(country):
     else:
         session["error"] = "Country does not have data"
         return redirect(url_for("map"))
-    
+
 @app.route("/submit_rev", methods=["POST"])
 def submit_rev():
     rating = request.form.get("rating")
@@ -84,6 +84,16 @@ def submit_rev():
     make_ranking(username, country, rating)
 
     return(redirect(url_for("country", country=country)))
+
+@app.route("/profile", methods=["POST"])
+def profile():
+    username = session.get("username")
+
+    docs = get_rankings(username)
+
+    num = len(docs)
+
+    return(render_template("profile.html", username = username, docs = docs, num = num))
 
 @app.route("/map")
 def map():
