@@ -87,6 +87,14 @@ andyS -- 2025-04-11 1:19
 andyS -- 2025-04-12 3:23
   - created review system in database
 
+HOME STRETCH CHECKLIST:
+------------------------------------
+* profile collections :: Andy
+* making map interactive :: Kyle
+* settings and ApexCharts :: Will
+* ApexCharts and JS :: Margie
+====================================
+
 kyleL -- 2025-04-22 6:22
   - Made the map clickable
   - added functionality for users to make country reviews via html
