@@ -48,6 +48,9 @@ willN -- 2025-04-07 14:25
   - Globe spins upon click redirecting to map page
   - Map page exists and can register search (with autofill) for countries
 
+kyleL -- 2025-04-08 16:00
+  - Added initial map
+
 andyS -- 2025-04-09 0:42
   - finished all of the access methods and functions for country data in mongodb
   - finished yearly dictionaries and functions for data
