@@ -4,18 +4,22 @@
 # p04
 # 2025-03-28
 from flask import Flask, render_template, request, redirect, session, url_for
-from mongo import *
-from users import *
-from rankings import *
+from app.mongo import *
+from app.users import *
+from app.rankings import *
 import os
 
 
 app = Flask(__name__)
-app.secret_key = os.urandom(32)
+app.secret_key = "ASKJDHHUHJHjjhJHSJKhjshIUJHIU89"
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
 
 @app.route("/")
 def home():
-    if (session.get("username") is None or session.get("password") is None):
+    if ("username" not in session):
         return redirect(url_for("login"))
     return render_template("index.html")
 
@@ -67,7 +71,7 @@ def country(country):
     else:
         session["error"] = "Country does not have data"
         return redirect(url_for("map"))
-    
+
 @app.route("/submit_rev", methods=["POST"])
 def submit_rev():
     rating = request.form.get("rating")
@@ -80,6 +84,16 @@ def submit_rev():
     make_ranking(username, country, rating)
 
     return(redirect(url_for("country", country=country)))
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    username = session.get("username")
+
+    docs = get_rankings(username)
+
+    num = len(docs)
+
+    return(render_template('profile.html', username = username, docs = docs, num = num))
 
 @app.route("/map")
 def map():

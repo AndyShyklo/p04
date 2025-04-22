@@ -4,15 +4,19 @@ from pymongo import MongoClient
 
 csv_path = "static/years"
 
-with open("keys/mongodb.txt", "r") as f:
-    key = f.read().strip()
+def get_db():
+	dir_path = os.path.dirname(__file__)
+	with open(os.path.join(dir_path, "keys", "mongodb.txt"), "r") as f:
+    		key = f.read().strip()
 
-client = MongoClient(key)
-db = client.get_database("years")
+	client = MongoClient(key)
+	db = client.get_database("years")
+	return(db)
 
 years = [2015, 2016, 2017, 2018, 2019]
 
 def init():
+    db = get_db()
     for filename in os.listdir(csv_path):
         if filename.endswith(".csv"):
 
@@ -36,6 +40,7 @@ def init():
 #init()
 
 def get_col(year):
+    db = get_db()
     return (db[str(year)])
 
 # print("2017 stats:")
