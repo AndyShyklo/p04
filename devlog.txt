@@ -48,6 +48,9 @@ willN -- 2025-04-07 14:25
   - Globe spins upon click redirecting to map page
   - Map page exists and can register search (with autofill) for countries
 
+kyleL -- 2025-04-08 16:00
+  - Added initial map
+
 andyS -- 2025-04-09 0:42
   - finished all of the access methods and functions for country data in mongodb
   - finished yearly dictionaries and functions for data
@@ -83,14 +86,25 @@ andyS -- 2025-04-11 1:19
 
 andyS -- 2025-04-12 3:23
   - created review system in database
-  - added functionality for users to make country reviews via html
-  - added login/register variability
-  - made new access functions for rankings and merged with __init__.py
-  - researched JS to python link for map (code --> country)
 
 andyS -- 2025-04-19 17:45
   - made working app on zandy.tech
   - configured working app with localhost runability
+  
+HOME STRETCH CHECKLIST:
+------------------------------------
+* profile collections :: Andy
+* making map interactive :: Kyle
+* settings and ApexCharts :: Will
+* ApexCharts and JS :: Margie
+====================================
+
+kyleL -- 2025-04-22 6:22
+  - Made the map clickable
+  - added functionality for users to make country reviews via html
+  - added login/register variability
+  - made new access functions for rankings and merged with __init__.py
+  - researched JS to python link for map (code --> country)
 
 andyS -- 2025-04-21 11:46
   - started ranking return function
