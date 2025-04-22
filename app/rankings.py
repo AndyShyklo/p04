@@ -87,7 +87,11 @@ def get_rankings(username):
     docs = []
 
     for doc in cur:
-        print(doc)
+        if "ranking" in doc:
+            try:
+                doc["ranking"] = int(doc["ranking"])
+            except:
+                doc["ranking"] = -1
         docs.append(doc)
 
     return(docs)

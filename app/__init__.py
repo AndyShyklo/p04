@@ -85,7 +85,7 @@ def submit_rev():
 
     return(redirect(url_for("country", country=country)))
 
-@app.route("/profile", methods=["POST"])
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
     username = session.get("username")
 
@@ -93,7 +93,7 @@ def profile():
 
     num = len(docs)
 
-    return(render_template("profile.html", username = username, docs = docs, num = num))
+    return(render_template('profile.html', username = username, docs = docs, num = num))
 
 @app.route("/map")
 def map():

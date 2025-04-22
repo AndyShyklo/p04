@@ -87,3 +87,17 @@ andyS -- 2025-04-12 3:23
   - added login/register variability
   - made new access functions for rankings and merged with __init__.py
   - researched JS to python link for map (code --> country)
+
+andyS -- 2025-04-19 17:45
+  - made working app on zandy.tech
+  - configured working app with localhost runability
+
+andyS -- 2025-04-21 11:46
+  - started ranking return function
+  - started profile.html to display reviews
+
+andyS -- 2025-04-21 23:31
+  - finished ranking return system
+  - finished profile.html with number of reviews and review list
+  - created functional link between local and zandy.tech
+  - started work on converting strings to their decimal/integer alternatives

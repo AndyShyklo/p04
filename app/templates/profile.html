@@ -15,22 +15,24 @@ p04
     </head>
     <body>
         <div id="nav"></div>
-        <h1>{{username}}</h1>
+        <h1>{{username}}'s reviews</h1>
 
         <script src = "../static/js/main.js"></script>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+      <h2>{{username}}'s reviews ({{num}} total):</h2>
+
         {% for doc in docs %}
-          <span>{doc['country']}:  </span>
-          {% for i in range({doc['ranking']}) %}
+          <span>{{doc['country']}}:  </span>
+          {% for i in range(doc['ranking']) %}
             <span class="fa fa-star checked"></span>
           {% endfor %}
-          {% for i in range(5-{doc['ranking']}) %}
+          {% for i in range(5 - doc['ranking']) %}
             <span class="fa fa-star"></span>
           {% endfor %}
+          <br>
         {% endfor %}
-        <span>({{num}})</span>
         <!-- <p>Review average of {{avg}} with a total of {{num_reviews}} reviews</p> -->
 
         <!-- {% if if_rank %}
