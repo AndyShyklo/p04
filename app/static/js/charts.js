@@ -11,7 +11,6 @@ var score = {
         width: "100%",
       },
     series: [{
-        name: 'sales',
         data: Object.values(scoredata)
       }],
     xaxis: {
@@ -34,12 +33,12 @@ var rank = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
-        data: Object.values(rankdata)
+        data: Object.values(rankdata),
       }],
     xaxis: {
         categories: Object.keys(rankdata)
     },
+
     stroke: {
         curve: 'smooth'
     },
@@ -47,6 +46,7 @@ var rank = {
         size: 5
     },
     yaxis: {
+        reversed: true,
         forceNiceScale: true,
         decimalsInFloat: 2
     }
@@ -57,7 +57,6 @@ var free = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
         data: Object.values(freedata)
       }],
     xaxis: {
@@ -80,7 +79,6 @@ var heal = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
         data: Object.values(healthdata)
       }],
     xaxis: {
@@ -103,7 +101,6 @@ var cor = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
         data: Object.values(cordata)
       }],
     xaxis: {
@@ -126,7 +123,6 @@ var gd = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
         data: Object.values(gdpdata)
       }],
     xaxis: {
@@ -149,7 +145,6 @@ var fam = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
         data: Object.values(famdata)
       }],
     xaxis: {
@@ -172,7 +167,6 @@ var gen = {
         type: 'line'
       },
     series: [{
-        name: 'sales',
         data: Object.values(gendata)
       }],
     xaxis: {
