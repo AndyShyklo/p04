@@ -21,32 +21,34 @@ p04
         <h2>{{error}}</h2>
         {% endif %}
 
-        <section style = "margin: auto 50px">
-            <div class="input-group" id="">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-input"/>
-                <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
-            </div>
-            <ul id="suggestions-list"></ul>
-        </section>
-        <div class="mapcontainer">
-            <div class="map">
-                <span>Alternative content for the map</span>
-            </div>
-            <div class="areaLegend"></div>
-            <div class="plotLegend"></div>
+         <section style="margin: auto 50px">
+        <div class="input-group" id="">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-input"/>
+            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
         </div>
-        <script src="static/js/search.js"></script>
-        <script src="static/js/main.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.1.0/js/jquery.mapael.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="https://rawgit.com/neveldo/jQuery-Mapael/master/js/maps/world_countries_mercator.js" charset="utf-8"></script>
-<script>
-    const countryNames = {
+        <ul id="suggestions-list"></ul>
+    </section>
+
+    <div class="mapcontainer">
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+        <div class="areaLegend"></div>
+        <div class="plotLegend"></div>
+    </div>
+
+    <!-- Load jQuery, Popper, Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.1.0/js/jquery.mapael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://rawgit.com/neveldo/jQuery-Mapael/master/js/maps/world_countries_mercator.js" charset="utf-8"></script>
+    <!-- Shoutout GPT for writing the countryNames and Area variables and Mapael for the example -->
+    <script>
+        const countryNames = {
 AF: "Afghanistan", AL: "Albania", DZ: "Algeria", AS: "American Samoa", AD: "Andorra", AO: "Angola",
 AI: "Anguilla", AQ: "Antarctica", AG: "Antigua and Barbuda", AR: "Argentina", AM: "Armenia", AW: "Aruba",
 AU: "Australia", AT: "Austria", AZ: "Azerbaijan", BS: "Bahamas", BH: "Bahrain", BD: "Bangladesh",
@@ -82,20 +84,231 @@ UA: "Ukraine", AE: "United Arab Emirates", GB: "United Kingdom", US: "United Sta
 UZ: "Uzbekistan", VU: "Vanuatu", VE: "Venezuela", VN: "Vietnam", YE: "Yemen", ZM: "Zambia", ZW: "Zimbabwe"
 };
 
-$(".mapcontainer").mapael({
-    "map": {
-        "name": "world_countries_mercator",
-        "defaultArea" : {
-            "eventHandlers": {
-                "click": function (e, id, mapElem, textElem) {
-                    const name = countryNames[id]
-                    console.log(name)
-                    return name
+        $(function () {
+            $(".mapcontainer").mapael({
+                map: {
+                    name: "world_countries_mercator",
+                    defaultArea: {
+                        eventHandlers: {
+                            click: function (e, id, mapElem, textElem) {
+                                const name = countryNames[id];
+                                console.log(name);
+                                alert(name); 
+                                return name;
+                            }
+                        }
+                    }
+                },
+                areas: {
+                    "AF": { "href": "/country/AF", "tooltip": { "content": "<span style=\"font-weight:bold;\">Afghanistan</span>" } },
+        "AL": { "href": "/country/AL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Albania</span>" } },
+        "DZ": { "href": "/country/DZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Algeria</span>" } },
+        "AS": { "href": "/country/AS", "tooltip": { "content": "<span style=\"font-weight:bold;\">American Samoa</span>" } },
+        "AD": { "href": "/country/AD", "tooltip": { "content": "<span style=\"font-weight:bold;\">Andorra</span>" } },
+        "AO": { "href": "/country/AO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Angola</span>" } },
+        "AI": { "href": "/country/AI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Anguilla</span>" } },
+        "AQ": { "href": "/country/AQ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Antarctica</span>" } },
+        "AG": { "href": "/country/AG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Antigua and Barbuda</span>" } },
+        "AR": { "href": "/country/AR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Argentina</span>" } },
+        "AM": { "href": "/country/AM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Armenia</span>" } },
+        "AW": { "href": "/country/AW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Aruba</span>" } },
+        "AU": { "href": "/country/AU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Australia</span>" } },
+        "AT": { "href": "/country/AT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Austria</span>" } },
+        "AZ": { "href": "/country/AZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Azerbaijan</span>" } },
+        "BS": { "href": "/country/BS", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bahamas</span>" } },
+        "BH": { "href": "/country/BH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bahrain</span>" } },
+        "BD": { "href": "/country/BD", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bangladesh</span>" } },
+        "BB": { "href": "/country/BB", "tooltip": { "content": "<span style=\"font-weight:bold;\">Barbados</span>" } },
+        "BY": { "href": "/country/BY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Belarus</span>" } },
+        "BE": { "href": "/country/BE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Belgium</span>" } },
+        "BZ": { "href": "/country/BZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Belize</span>" } },
+        "BJ": { "href": "/country/BJ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Benin</span>" } },
+        "BM": { "href": "/country/BM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bermuda</span>" } },
+        "BT": { "href": "/country/BT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bhutan</span>" } },
+        "BO": { "href": "/country/BO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bolivia</span>" } },
+        "BA": { "href": "/country/BA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bosnia and Herzegovina</span>" } },
+        "BW": { "href": "/country/BW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Botswana</span>" } },
+        "BR": { "href": "/country/BR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Brazil</span>" } },
+        "IO": { "href": "/country/IO", "tooltip": { "content": "<span style=\"font-weight:bold;\">British Indian Ocean Territory</span>" } },
+        "BN": { "href": "/country/BN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Brunei</span>" } },
+        "BG": { "href": "/country/BG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Bulgaria</span>" } },
+        "BF": { "href": "/country/BF", "tooltip": { "content": "<span style=\"font-weight:bold;\">Burkina Faso</span>" } },
+        "BI": { "href": "/country/BI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Burundi</span>" } },
+        "KH": { "href": "/country/KH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cambodia</span>" } },
+        "CM": { "href": "/country/CM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cameroon</span>" } },
+        "CA": { "href": "/country/CA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Canada</span>" } },
+        "CV": { "href": "/country/CV", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cape Verde</span>" } },
+        "KY": { "href": "/country/KY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cayman Islands</span>" } },
+        "CF": { "href": "/country/CF", "tooltip": { "content": "<span style=\"font-weight:bold;\">Central African Republic</span>" } },
+        "TD": { "href": "/country/TD", "tooltip": { "content": "<span style=\"font-weight:bold;\">Chad</span>" } },
+        "CL": { "href": "/country/CL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Chile</span>" } },
+        "CN": { "href": "/country/CN", "tooltip": { "content": "<span style=\"font-weight:bold;\">China</span>" } },
+        "CX": { "href": "/country/CX", "tooltip": { "content": "<span style=\"font-weight:bold;\">Christmas Island</span>" } },
+        "CC": { "href": "/country/CC", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cocos Islands</span>" } },
+        "CO": { "href": "/country/CO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Colombia</span>" } },
+            "KM": { "href": "/country/KM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Comoros</span>" } },
+    "CG": { "href": "/country/CG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Republic of the Congo</span>" } },
+    "CD": { "href": "/country/CD", "tooltip": { "content": "<span style=\"font-weight:bold;\">Democratic Republic of the Congo</span>" } },
+    "CK": { "href": "/country/CK", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cook Islands</span>" } },
+    "CR": { "href": "/country/CR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Costa Rica</span>" } },
+    "HR": { "href": "/country/HR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Croatia</span>" } },
+    "CU": { "href": "/country/CU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cuba</span>" } },
+    "CY": { "href": "/country/CY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Cyprus</span>" } },
+    "CZ": { "href": "/country/CZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Czech Republic</span>" } },
+    "DK": { "href": "/country/DK", "tooltip": { "content": "<span style=\"font-weight:bold;\">Denmark</span>" } },
+    "DJ": { "href": "/country/DJ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Djibouti</span>" } },
+    "DM": { "href": "/country/DM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Dominica</span>" } },
+    "DO": { "href": "/country/DO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Dominican Republic</span>" } },
+    "EC": { "href": "/country/EC", "tooltip": { "content": "<span style=\"font-weight:bold;\">Ecuador</span>" } },
+    "EG": { "href": "/country/EG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Egypt</span>" } },
+    "SV": { "href": "/country/SV", "tooltip": { "content": "<span style=\"font-weight:bold;\">El Salvador</span>" } },
+    "GQ": { "href": "/country/GQ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Equatorial Guinea</span>" } },
+    "ER": { "href": "/country/ER", "tooltip": { "content": "<span style=\"font-weight:bold;\">Eritrea</span>" } },
+    "EE": { "href": "/country/EE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Estonia</span>" } },
+    "SZ": { "href": "/country/SZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Eswatini</span>" } },
+    "ET": { "href": "/country/ET", "tooltip": { "content": "<span style=\"font-weight:bold;\">Ethiopia</span>" } },
+    "FJ": { "href": "/country/FJ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Fiji</span>" } },
+    "FI": { "href": "/country/FI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Finland</span>" } },
+    "FR": { "href": "/country/FR", "tooltip": { "content": "<span style=\"font-weight:bold;\">France</span>" } },
+    "GA": { "href": "/country/GA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Gabon</span>" } },
+    "GM": { "href": "/country/GM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Gambia</span>" } },
+    "GE": { "href": "/country/GE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Georgia</span>" } },
+    "DE": { "href": "/country/DE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Germany</span>" } },
+    "GH": { "href": "/country/GH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Ghana</span>" } },
+    "GR": { "href": "/country/GR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Greece</span>" } },
+    "GU": { "href": "/country/GU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Guam</span>" } },
+    "GT": { "href": "/country/GT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Guatemala</span>" } },
+    "GN": { "href": "/country/GN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Guinea</span>" } },
+    "GW": { "href": "/country/GW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Guinea-Bissau</span>" } },
+    "GY": { "href": "/country/GY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Guyana</span>" } },
+    "HT": { "href": "/country/HT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Haiti</span>" } },
+    "HN": { "href": "/country/HN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Honduras</span>" } },
+    "HU": { "href": "/country/HU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Hungary</span>" } },
+    "IS": { "href": "/country/IS", "tooltip": { "content": "<span style=\"font-weight:bold;\">Iceland</span>" } },
+    "IN": { "href": "/country/IN", "tooltip": { "content": "<span style=\"font-weight:bold;\">India</span>" } },
+    "ID": { "href": "/country/ID", "tooltip": { "content": "<span style=\"font-weight:bold;\">Indonesia</span>" } },
+    "IR": { "href": "/country/IR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Iran</span>" } },
+    "IQ": { "href": "/country/IQ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Iraq</span>" } },
+    "IE": { "href": "/country/IE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Ireland</span>" } },
+    "IL": { "href": "/country/IL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Israel</span>" } },
+    "IT": { "href": "/country/IT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Italy</span>" } },
+    "CI": { "href": "/country/CI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Ivory Coast</span>" } },
+    "JM": { "href": "/country/JM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Jamaica</span>" } },
+    "JP": { "href": "/country/JP", "tooltip": { "content": "<span style=\"font-weight:bold;\">Japan</span>" } },
+     "JO": { "href": "/country/JO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Jordan</span>" } },
+     "KZ": { "href": "/country/KZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Kazakhstan</span>" } },
+     "KE": { "href": "/country/KE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Kenya</span>" } },
+     "KI": { "href": "/country/KI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Kiribati</span>" } },
+    "KP": { "href": "/country/KP", "tooltip": { "content": "<span style=\"font-weight:bold;\">North Korea</span>" } },
+    "KR": { "href": "/country/KR", "tooltip": { "content": "<span style=\"font-weight:bold;\">South Korea</span>" } },
+    "KW": { "href": "/country/KW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Kuwait</span>" } },
+    "KG": { "href": "/country/KG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Kyrgyzstan</span>" } },
+    "LA": { "href": "/country/LA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Laos</span>" } },
+    "LV": { "href": "/country/LV", "tooltip": { "content": "<span style=\"font-weight:bold;\">Latvia</span>" } },
+    "LB": { "href": "/country/LB", "tooltip": { "content": "<span style=\"font-weight:bold;\">Lebanon</span>" } },
+    "LS": { "href": "/country/LS", "tooltip": { "content": "<span style=\"font-weight:bold;\">Lesotho</span>" } },
+    "LR": { "href": "/country/LR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Liberia</span>" } },
+    "LY": { "href": "/country/LY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Libya</span>" } },
+    "LI": { "href": "/country/LI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Liechtenstein</span>" } },
+    "LT": { "href": "/country/LT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Lithuania</span>" } },
+    "LU": { "href": "/country/LU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Luxembourg</span>" } },
+    "MG": { "href": "/country/MG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Madagascar</span>" } },
+    "MW": { "href": "/country/MW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Malawi</span>" } },
+    "MY": { "href": "/country/MY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Malaysia</span>" } },
+    "MV": { "href": "/country/MV", "tooltip": { "content": "<span style=\"font-weight:bold;\">Maldives</span>" } },
+    "ML": { "href": "/country/ML", "tooltip": { "content": "<span style=\"font-weight:bold;\">Mali</span>" } },
+    "MT": { "href": "/country/MT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Malta</span>" } },
+    "MH": { "href": "/country/MH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Marshall Islands</span>" } },
+    "MR": { "href": "/country/MR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Mauritania</span>" } },
+    "MU": { "href": "/country/MU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Mauritius</span>" } },
+    "MX": { "href": "/country/MX", "tooltip": { "content": "<span style=\"font-weight:bold;\">Mexico</span>" } },
+    "FM": { "href": "/country/FM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Micronesia</span>" } },
+    "MD": { "href": "/country/MD", "tooltip": { "content": "<span style=\"font-weight:bold;\">Moldova</span>" } },
+    "MC": { "href": "/country/MC", "tooltip": { "content": "<span style=\"font-weight:bold;\">Monaco</span>" } },
+    "MN": { "href": "/country/MN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Mongolia</span>" } },
+    "ME": { "href": "/country/ME", "tooltip": { "content": "<span style=\"font-weight:bold;\">Montenegro</span>" } },
+    "MA": { "href": "/country/MA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Morocco</span>" } },
+    "MZ": { "href": "/country/MZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Mozambique</span>" } },
+    "MM": { "href": "/country/MM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Myanmar</span>" } },
+    "NA": { "href": "/country/NA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Namibia</span>" } },
+    "NR": { "href": "/country/NR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Nauru</span>" } },
+    "NP": { "href": "/country/NP", "tooltip": { "content": "<span style=\"font-weight:bold;\">Nepal</span>" } },
+    "NL": { "href": "/country/NL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Netherlands</span>" } },
+    "NZ": { "href": "/country/NZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">New Zealand</span>" } },
+    "NI": { "href": "/country/NI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Nicaragua</span>" } },
+    "NE": { "href": "/country/NE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Niger</span>" } },
+    "NG": { "href": "/country/NG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Nigeria</span>" } },
+    "MK": { "href": "/country/MK", "tooltip": { "content": "<span style=\"font-weight:bold;\">North Macedonia</span>" } },
+    "NO": { "href": "/country/NO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Norway</span>" } },
+    "OM": { "href": "/country/OM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Oman</span>" } },
+    "PK": { "href": "/country/PK", "tooltip": { "content": "<span style=\"font-weight:bold;\">Pakistan</span>" } },
+    "PW": { "href": "/country/PW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Palau</span>" } },
+    "PS": { "href": "/country/PS", "tooltip": { "content": "<span style=\"font-weight:bold;\">Palestine</span>" } },
+    "PA": { "href": "/country/PA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Panama</span>" } },
+    "PG": { "href": "/country/PG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Papua New Guinea</span>" } },
+    "PY": { "href": "/country/PY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Paraguay</span>" } },
+    "PE": { "href": "/country/PE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Peru</span>" } },
+    "PH": { "href": "/country/PH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Philippines</span>" } },
+    "PL": { "href": "/country/PL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Poland</span>" } },
+    "PT": { "href": "/country/PT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Portugal</span>" } },
+    "QA": { "href": "/country/QA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Qatar</span>" } },
+    "RO": { "href": "/country/RO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Romania</span>" } },
+    "RU": { "href": "/country/RU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Russia</span>" } },
+    "RW": { "href": "/country/RW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Rwanda</span>" } },
+    "KN": { "href": "/country/KN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Saint Kitts and Nevis</span>" } },
+    "LC": { "href": "/country/LC", "tooltip": { "content": "<span style=\"font-weight:bold;\">Saint Lucia</span>" } },
+    "VC": { "href": "/country/VC", "tooltip": { "content": "<span style=\"font-weight:bold;\">Saint Vincent and the Grenadines</span>" } },
+    "WS": { "href": "/country/WS", "tooltip": { "content": "<span style=\"font-weight:bold;\">Samoa</span>" } },
+    "SM": { "href": "/country/SM", "tooltip": { "content": "<span style=\"font-weight:bold;\">San Marino</span>" } },
+    "ST": { "href": "/country/ST", "tooltip": { "content": "<span style=\"font-weight:bold;\">Sao Tome and Principe</span>" } },
+    "SA": { "href": "/country/SA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Saudi Arabia</span>" } },
+    "SN": { "href": "/country/SN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Senegal</span>" } },
+    "RS": { "href": "/country/RS", "tooltip": { "content": "<span style=\"font-weight:bold;\">Serbia</span>" } },
+    "SC": { "href": "/country/SC", "tooltip": { "content": "<span style=\"font-weight:bold;\">Seychelles</span>" } },
+    "SL": { "href": "/country/SL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Sierra Leone</span>" } },
+    "SG": { "href": "/country/SG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Singapore</span>" } },
+    "SK": { "href": "/country/SK", "tooltip": { "content": "<span style=\"font-weight:bold;\">Slovakia</span>" } },
+    "SI": { "href": "/country/SI", "tooltip": { "content": "<span style=\"font-weight:bold;\">Slovenia</span>" } },
+    "SB": { "href": "/country/SB", "tooltip": { "content": "<span style=\"font-weight:bold;\">Solomon Islands</span>" } },
+    "SO": { "href": "/country/SO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Somalia</span>" } },
+    "ZA": { "href": "/country/ZA", "tooltip": { "content": "<span style=\"font-weight:bold;\">South Africa</span>" } },
+    "SS": { "href": "/country/SS", "tooltip": { "content": "<span style=\"font-weight:bold;\">South Sudan</span>" } },
+    "ES": { "href": "/country/ES", "tooltip": { "content": "<span style=\"font-weight:bold;\">Spain</span>" } },
+    "LK": { "href": "/country/LK", "tooltip": { "content": "<span style=\"font-weight:bold;\">Sri Lanka</span>" } },
+    "SD": { "href": "/country/SD", "tooltip": { "content": "<span style=\"font-weight:bold;\">Sudan</span>" } },
+    "SR": { "href": "/country/SR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Suriname</span>" } },
+    "SE": { "href": "/country/SE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Sweden</span>" } },
+    "CH": { "href": "/country/CH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Switzerland</span>" } },
+    "SY": { "href": "/country/SY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Syria</span>" } },
+    "TW": { "href": "/country/TW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Taiwan</span>" } },
+    "TJ": { "href": "/country/TJ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Tajikistan</span>" } },
+    "TZ": { "href": "/country/TZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Tanzania</span>" } },
+    "TH": { "href": "/country/TH", "tooltip": { "content": "<span style=\"font-weight:bold;\">Thailand</span>" } },
+    "TL": { "href": "/country/TL", "tooltip": { "content": "<span style=\"font-weight:bold;\">Timor-Leste</span>" } },
+    "TG": { "href": "/country/TG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Togo</span>" } },
+    "TO": { "href": "/country/TO", "tooltip": { "content": "<span style=\"font-weight:bold;\">Tonga</span>" } },
+    "TT": { "href": "/country/TT", "tooltip": { "content": "<span style=\"font-weight:bold;\">Trinidad and Tobago</span>" } },
+    "TN": { "href": "/country/TN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Tunisia</span>" } },
+    "TR": { "href": "/country/TR", "tooltip": { "content": "<span style=\"font-weight:bold;\">Turkey</span>" } },
+    "TM": { "href": "/country/TM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Turkmenistan</span>" } },
+    "TV": { "href": "/country/TV", "tooltip": { "content": "<span style=\"font-weight:bold;\">Tuvalu</span>" } },
+    "UG": { "href": "/country/UG", "tooltip": { "content": "<span style=\"font-weight:bold;\">Uganda</span>" } },
+    "UA": { "href": "/country/UA", "tooltip": { "content": "<span style=\"font-weight:bold;\">Ukraine</span>" } },
+    "AE": { "href": "/country/AE", "tooltip": { "content": "<span style=\"font-weight:bold;\">United Arab Emirates</span>" } },
+    "GB": { "href": "/country/GB", "tooltip": { "content": "<span style=\"font-weight:bold;\">United Kingdom</span>" } },
+    "US": { "href": "/country/US", "tooltip": { "content": "<span style=\"font-weight:bold;\">United States</span>" } },
+    "UY": { "href": "/country/UY", "tooltip": { "content": "<span style=\"font-weight:bold;\">Uruguay</span>" } },
+    "UZ": { "href": "/country/UZ", "tooltip": { "content": "<span style=\"font-weight:bold;\">Uzbekistan</span>" } },
+    "VU": { "href": "/country/VU", "tooltip": { "content": "<span style=\"font-weight:bold;\">Vanuatu</span>" } },
+    "VE": { "href": "/country/VE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Venezuela</span>" } },
+    "VN": { "href": "/country/VN", "tooltip": { "content": "<span style=\"font-weight:bold;\">Vietnam</span>" } },
+    "YE": { "href": "/country/YE", "tooltip": { "content": "<span style=\"font-weight:bold;\">Yemen</span>" } },
+    "ZM": { "href": "/country/ZM", "tooltip": { "content": "<span style=\"font-weight:bold;\">Zambia</span>" } },
+    "ZW": { "href": "/country/ZW", "tooltip": { "content": "<span style=\"font-weight:bold;\">Zimbabwe</span>" } }
+     
                 }
-            }
-        }
-    }
-});
-  </script>
-    </body>
+            });
+        });
+    </script>
+</body>
 </html>
