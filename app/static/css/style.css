@@ -21,6 +21,7 @@ p04
 
 nav{
     background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 h1{
@@ -33,6 +34,15 @@ h1{
         2px 2px 0 var(--secondary-color); */
     background-color: black;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    #globe {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 label{
@@ -40,8 +50,22 @@ label{
 }
 
 body{
-    background-color: var(--background-color);
-    font-family: 'Nunito';
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon-group {
+    display: flex;
+    gap: 0.5rem;
+}
+.subtext {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
 }
 #globe{
     overflow: hidden;
@@ -183,3 +207,4 @@ body{
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
 }
+
