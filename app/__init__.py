@@ -4,9 +4,9 @@
 # p04
 # 2025-03-28
 from flask import Flask, render_template, request, redirect, session, url_for
-from .mongo import *
-from .users import *
-from .rankings import *
+from app.mongo import *
+from app.users import *
+from app.rankings import *
 import os
 
 
