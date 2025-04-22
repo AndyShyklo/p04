@@ -83,6 +83,9 @@ andyS -- 2025-04-11 1:19
 
 andyS -- 2025-04-12 3:23
   - created review system in database
+
+kyleL -- 2025-04-22 6:22
+  - Made the map clickable
   - added functionality for users to make country reviews via html
   - added login/register variability
   - made new access functions for rankings and merged with __init__.py
