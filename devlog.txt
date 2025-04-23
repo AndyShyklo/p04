@@ -137,3 +137,17 @@ andyS -- 2025-04-22 23:47
   - added new mongo access methods and color converter
   - updated website config files and requirements
   - updated design doc with most recent updates
+
+willN, andyS, kyleL, margieC -- 2025-04-23 1:51
+  - finished testing and ensured functionalities
+  - finished demo video
+
+DESIGN REVISIONS FINAL:
+------------------------------------
+  - Revised tasks performed by each Devo
+  - Revised tables for database organization
+  - Cut favorites and settings functionality
+  - Cut weather API 
+  - Added colorful interactive map
+  - Added list of user reviews on profile
+====================================
