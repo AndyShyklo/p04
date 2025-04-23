@@ -11,6 +11,7 @@ var score = {
         width: "100%",
       },
     series: [{
+        name: "happiness rating",
         data: Object.values(scoredata)
       }],
     xaxis: {
@@ -33,6 +34,7 @@ var rank = {
         type: 'line'
       },
     series: [{
+        name: "happiness ranking",
         data: Object.values(rankdata),
       }],
     xaxis: {
@@ -48,7 +50,6 @@ var rank = {
     yaxis: {
         reversed: true,
         forceNiceScale: true,
-        decimalsInFloat: 2
     }
 }
 
@@ -57,6 +58,7 @@ var free = {
         type: 'line'
       },
     series: [{
+        name: "freedom rating",
         data: Object.values(freedata)
       }],
     xaxis: {
@@ -79,6 +81,7 @@ var heal = {
         type: 'line'
       },
     series: [{
+        name: "life expectancy ratio",
         data: Object.values(healthdata)
       }],
     xaxis: {
@@ -101,6 +104,7 @@ var cor = {
         type: 'line'
       },
     series: [{
+        name: "gov corruption rating",
         data: Object.values(cordata)
       }],
     xaxis: {
@@ -123,6 +127,7 @@ var gd = {
         type: 'line'
       },
     series: [{
+        name: "gdp per capita",
         data: Object.values(gdpdata)
       }],
     xaxis: {
@@ -145,6 +150,7 @@ var fam = {
         type: 'line'
       },
     series: [{
+        name: "family support",
         data: Object.values(famdata)
       }],
     xaxis: {
@@ -167,6 +173,7 @@ var gen = {
         type: 'line'
       },
     series: [{
+        name: "generosity",
         data: Object.values(gendata)
       }],
     xaxis: {
