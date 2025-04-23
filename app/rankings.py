@@ -55,7 +55,7 @@ def calculate_rankings(country):
     else:
         avg = 0
 
-    return(avg)
+    return(round(avg, 2))
 
 def num_rankings(country):
     db = client.get_database("ratings")
