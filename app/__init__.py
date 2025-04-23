@@ -100,7 +100,21 @@ def map():
     if (session.get("username") is None or session.get("password") is None):
         return redirect(url_for("login"))
     error = session.pop("error", None)
-    return render_template('map.html', error = error)
+    colors = col_val()
+    countries = get_abbreviations()
+    
+    print(countries)
+    print(colors)
+
+    areas = {}
+    for code, country in countries.items():
+        areas[code] = {
+            "href": f"/country/{country}",
+            "tooltip": {"content": f"<span style='font-weight:bold;'>{country}</span>"},
+            "attrs": {"fill": colors[country]}
+        }
+
+    return render_template('map.html', error = error, areas = areas)
 
 if __name__ == "__main__":
     app.debug = True

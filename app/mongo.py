@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import colorsys
 from pymongo import MongoClient
 
 csv_path = "static/years"
@@ -331,6 +332,228 @@ def find_diff():
     print(listErr)
     print(arrayErr)
 
-find_diff()
+# find_diff()
 
-print(country_array)
+# print(country_array)
+
+def last_vals_score():
+    ranks = {}
+
+    for country in country_array:
+        try:
+            ranks[country] = float(get_happiness_score(2019, country))
+        except:
+            print("No year found 2019")
+            try:
+                print(country)
+                ranks[country] = float(get_happiness_score(2018, country))
+            except:
+                print("No year found 2018")
+                try:
+                    print(country)
+                    ranks[country] = float(get_happiness_score(2017, country))
+                except:
+                    print("No year found 2017")
+                    try:
+                        print(country)
+                        ranks[country] = float(get_happiness_score(2016, country))
+                    except:
+                        print("No year found 2016")
+                        try:
+                            print(country)
+                            ranks[country] = float(get_happiness_score(2015, country))
+                        except:
+                            print("No year found 2015 and at all")
+
+    print(ranks)
+    return(ranks)
+
+ranks_dict = {'Afghanistan': 3.203, 'Albania': 4.719, 'Algeria': 5.211, 'Angola': 3.795, 'Argentina': 6.086, 'Armenia': 4.559, 'Australia': 7.228, 'Austria': 7.246, 'Azerbaijan': 5.208, 'Bahrain': 6.199, 'Bangladesh': 4.456, 'Belarus': 5.323, 'Belgium': 6.923, 'Belize': 5.956, 'Benin': 4.883, 'Bhutan': 5.082, 'Bolivia': 5.779, 'Bosnia and Herzegovina': 5.386, 'Botswana': 3.488, 'Brazil': 6.3, 'Bulgaria': 5.011, 'Burkina Faso': 4.587, 'Burundi': 3.775, 'Cambodia': 4.7, 'Cameroon': 5.044, 'Canada': 7.278, 'Central African Republic': 3.083, 'Chad': 4.35, 'Chile': 6.444, 'China': 5.191, 'Colombia': 6.125, 'Comoros': 3.973, 'Congo (Brazzaville)': 4.812, 'Congo (Kinshasa)': 4.418, 'Costa Rica': 7.167, 'Croatia': 5.432, 'Cyprus': 6.046, 'Czech Republic': 6.852, 'Denmark': 7.6, 'Djibouti': 4.369, 'Dominican Republic': 5.425, 'Ecuador': 6.028, 'Egypt': 4.166, 'El Salvador': 6.253, 'Estonia': 5.893, 'Ethiopia': 4.286, 'Finland': 7.769, 'France': 6.592, 'Gabon': 4.799, 'Gambia': 4.516, 'Georgia': 4.519, 'Germany': 6.985, 'Ghana': 4.996, 'Greece': 5.287, 'Guatemala': 6.436, 'Guinea': 4.534, 'Haiti': 3.597, 'Honduras': 5.86, 'Hong Kong': 5.43, 'Hungary': 5.758, 'Iceland': 7.494, 'India': 4.015, 'Indonesia': 5.192, 'Iran': 4.548, 'Iraq': 4.437, 'Ireland': 7.021, 'Israel': 7.139, 'Italy': 6.223, 'Ivory Coast': 4.944, 'Jamaica': 5.89, 'Japan': 5.886, 'Jordan': 4.906, 'Kazakhstan': 5.809, 'Kenya': 4.509, 'Kosovo': 6.1, 'Kuwait': 6.021, 'Kyrgyzstan': 5.261, 'Laos': 4.796, 'Latvia': 5.94, 'Lebanon': 5.197, 'Lesotho': 3.802, 'Liberia': 3.975, 'Libya': 5.525, 'Lithuania': 6.149, 'Luxembourg': 7.09, 'Madagascar': 3.933, 'Malawi': 3.41, 'Malaysia': 5.339, 'Mali': 4.39, 'Malta': 6.726, 'Mauritania': 4.49, 'Mauritius': 5.888, 'Mexico': 6.595, 'Moldova': 5.529, 'Mongolia': 5.285, 'Montenegro': 5.523, 'Morocco': 5.208, 'Mozambique': 4.466, 'Myanmar': 4.36, 'Namibia': 4.639, 'Nepal': 4.913, 'Netherlands': 7.488, 'New Zealand': 7.307, 'Nicaragua': 6.105, 'Niger': 4.628, 'Nigeria': 5.265, 'North Cyprus': 5.718, 'North Macedonia': 5.274, 'Norway': 7.554, 'Oman': 6.853, 'Pakistan': 5.653, 'Palestinian Territories': 4.696, 'Panama': 6.321, 'Paraguay': 5.743, 'Peru': 5.697, 'Philippines': 5.631, 'Poland': 6.182, 'Portugal': 5.693, 'Puerto Rico': 7.039, 'Qatar': 6.374, 'Romania': 6.07, 'Russia': 5.648, 'Rwanda': 3.334, 'Saudi Arabia': 6.375, 'Senegal': 4.681, 'Serbia': 5.603, 'Sierra Leone': 4.374, 'Singapore': 6.262, 'Slovakia': 6.198, 'Slovenia': 6.118, 'Somalia': 4.668, 'Somaliland': 5.057, 'South Africa': 4.722, 'South Korea': 5.895, 'South Sudan': 2.853, 'Spain': 6.354, 'Sri Lanka': 4.366, 'Sudan': 4.139, 'Suriname': 6.269, 'Swaziland': 4.212, 'Sweden': 7.343, 'Switzerland': 7.48, 'Syria': 3.462, 'Taiwan': 6.446, 'Tajikistan': 5.467, 'Tanzania': 3.231, 'Thailand': 6.008, 'Togo': 4.085, 'Trinidad and Tobago': 6.192, 'Tunisia': 4.461, 'Turkey': 5.373, 'Turkmenistan': 5.247, 'Uganda': 4.189, 'Ukraine': 4.332, 'United Arab Emirates': 6.825, 'United Kingdom': 7.054, 'United States': 6.892, 'Uruguay': 6.293, 'Uzbekistan': 6.174, 'Venezuela': 4.707, 'Vietnam': 5.175, 'Yemen': 3.38, 'Zambia': 4.107, 'Zimbabwe': 3.663}
+
+def col_val():
+    minV = 2
+    maxV = 8
+    ranks = ranks_dict
+    color_dict = {}
+    for key, value in ranks.items():
+        cla = max(minV, min(maxV, value))
+        rat = (cla - minV) / (maxV - minV)
+
+        hue = 5 + rat * ((cla - 4) * 0.16)
+
+        r, g, b = colorsys.hsv_to_rgb(hue, 1, 1)
+
+        red = round(r*255)
+        green = round(g*255)
+        blue = round(b*255)
+    
+        color_dict[key] = "#{:02x}{:02x}{:02x}".format(red, green, blue)
+
+    return(color_dict)
+
+def get_abbreviations():
+    country_names = {
+    "AF": "Afghanistan",
+    "AL": "Albania",
+    "DZ": "Algeria",
+    "AO": "Angola",
+    "AR": "Argentina",
+    "AM": "Armenia",
+    "AU": "Australia",
+    "AT": "Austria",
+    "AZ": "Azerbaijan",
+    "BH": "Bahrain",
+    "BD": "Bangladesh",
+    "BY": "Belarus",
+    "BE": "Belgium",
+    "BZ": "Belize",
+    "BJ": "Benin",
+    "BT": "Bhutan",
+    "BO": "Bolivia",
+    "BA": "Bosnia and Herzegovina",
+    "BW": "Botswana",
+    "BR": "Brazil",
+    "BG": "Bulgaria",
+    "BF": "Burkina Faso",
+    "BI": "Burundi",
+    "KH": "Cambodia",
+    "CM": "Cameroon",
+    "CA": "Canada",
+    "CF": "Central African Republic",
+    "TD": "Chad",
+    "CL": "Chile",
+    "CN": "China",
+    "CO": "Colombia",
+    "KM": "Comoros",
+    "CG": "Congo (Brazzaville)",
+    "CD": "Congo (Kinshasa)",
+    "CR": "Costa Rica",
+    "HR": "Croatia",
+    "CY": "Cyprus",
+    "CZ": "Czech Republic",
+    "DK": "Denmark",
+    "DJ": "Djibouti",
+    "DO": "Dominican Republic",
+    "EC": "Ecuador",
+    "EG": "Egypt",
+    "SV": "El Salvador",
+    "EE": "Estonia",
+    "ET": "Ethiopia",
+    "FI": "Finland",
+    "FR": "France",
+    "GA": "Gabon",
+    "GM": "Gambia",
+    "GE": "Georgia",
+    "DE": "Germany",
+    "GH": "Ghana",
+    "GR": "Greece",
+    "GT": "Guatemala",
+    "GN": "Guinea",
+    "HT": "Haiti",
+    "HN": "Honduras",
+    "HK": "Hong Kong",
+    "HU": "Hungary",
+    "IS": "Iceland",
+    "IN": "India",
+    "ID": "Indonesia",
+    "IR": "Iran",
+    "IQ": "Iraq",
+    "IE": "Ireland",
+    "IL": "Israel",
+    "IT": "Italy",
+    "CI": "Ivory Coast",
+    "JM": "Jamaica",
+    "JP": "Japan",
+    "JO": "Jordan",
+    "KZ": "Kazakhstan",
+    "KE": "Kenya",
+    "XK": "Kosovo",
+    "KW": "Kuwait",
+    "KG": "Kyrgyzstan",
+    "LA": "Laos",
+    "LV": "Latvia",
+    "LB": "Lebanon",
+    "LS": "Lesotho",
+    "LR": "Liberia",
+    "LY": "Libya",
+    "LT": "Lithuania",
+    "LU": "Luxembourg",
+    "MG": "Madagascar",
+    "MW": "Malawi",
+    "MY": "Malaysia",
+    "ML": "Mali",
+    "MT": "Malta",
+    "MR": "Mauritania",
+    "MU": "Mauritius",
+    "MX": "Mexico",
+    "MD": "Moldova",
+    "MN": "Mongolia",
+    "ME": "Montenegro",
+    "MA": "Morocco",
+    "MZ": "Mozambique",
+    "MM": "Myanmar",
+    "NA": "Namibia",
+    "NP": "Nepal",
+    "NL": "Netherlands",
+    "NZ": "New Zealand",
+    "NI": "Nicaragua",
+    "NE": "Niger",
+    "NG": "Nigeria",
+    "MK": "North Macedonia",
+    "NO": "Norway",
+    "OM": "Oman",
+    "PK": "Pakistan",
+    "PS": "Palestinian Territories",
+    "PA": "Panama",
+    "PY": "Paraguay",
+    "PE": "Peru",
+    "PH": "Philippines",
+    "PL": "Poland",
+    "PT": "Portugal",
+    "PR": "Puerto Rico",
+    "QA": "Qatar",
+    "RO": "Romania",
+    "RU": "Russia",
+    "RW": "Rwanda",
+    "SA": "Saudi Arabia",
+    "SN": "Senegal",
+    "RS": "Serbia",
+    "SL": "Sierra Leone",
+    "SG": "Singapore",
+    "SK": "Slovakia",
+    "SI": "Slovenia",
+    "SO": "Somalia",
+    "ZA": "South Africa",
+    "KR": "South Korea",
+    "SS": "South Sudan",
+    "ES": "Spain",
+    "LK": "Sri Lanka",
+    "SD": "Sudan",
+    "SR": "Suriname",
+    "SZ": "Swaziland",
+    "SE": "Sweden",
+    "CH": "Switzerland",
+    "SY": "Syria",
+    "TW": "Taiwan",
+    "TJ": "Tajikistan",
+    "TZ": "Tanzania",
+    "TH": "Thailand",
+    "TG": "Togo",
+    "TT": "Trinidad and Tobago",
+    "TN": "Tunisia",
+    "TR": "Turkey",
+    "TM": "Turkmenistan",
+    "UG": "Uganda",
+    "UA": "Ukraine",
+    "AE": "United Arab Emirates",
+    "GB": "United Kingdom",
+    "US": "United States",
+    "UY": "Uruguay",
+    "UZ": "Uzbekistan",
+    "VE": "Venezuela",
+    "VN": "Vietnam",
+    "YE": "Yemen",
+    "ZM": "Zambia",
+    "ZW": "Zimbabwe"
+    }
+    return country_names
