@@ -5,12 +5,10 @@
 |                                        | PMWN       | DAS        |  DKL       | DMC      |
 | -------------------------------------- | ---------- | ---------- | ---------- | -------- |
 | Flask setup and routing                |            |    **X**   |            |   **X**  |
-| Javascript                             |            |            |            |   **X**  |
 | Construct Database Organization        |            |    **X**   |            |          |
-| Front-end (JS)                         |    **X**   |            |   **X**    |          |
-| Front-end (Bootstrap + CSS)            |            |            |   **X**    |          |
+| Front-end (JS)                         |    **X**   |            |   **X**    |   **X**  |
+| Front-end (Bootstrap + CSS)            |   **X**    |            |   **X**    |          |
 | Build HTML Templates                   |    **X**   |            |            |   **X**  |
-| API Configuration & Connections        |            |            |   **X**    |   **X**  |
 | Final Testing and Bug Fixing           |    **X**   |    **X**   |   **X**    |   **X**  |
 
 ## Description:
@@ -28,9 +26,26 @@ This is an alternate method, if you don't prefer the Git Clone method. Go to the
 
 Reagardless of which method you choose, navigate to the repo folder and type ```$ pip install -r requirements.txt``` to install required dependencies
 
+## Launch
 
-## Launch 
-Head to the following website
-```
-p04.blasianwilly.tech
-```
+1. **Navigate to the repository folder**  
+   Make sure you are **outside** of the `app` directory.
+
+2. **Run the application**  
+   Use the following command:
+   ```bash
+   python3 run.py
+
+You should now be able to access the app at 127.0.0.1:5000.
+   
+### FEATURE SPOTLIGHT
+* Clicking on the big globe on the homescreen will spin you into our interactive color-coded map
+* Each country on the map can be accessed to view their world happiness report data
+* Users can rate each country from 1-5 and access all their ratings in their profile for later referral
+* Each country gets an overall rating based on the pool of reviews created by users
+
+### KNOWN BUGS/ISSUES
+* Project could not be served on PM's droplet; several seemingly mongo related issues caused app instance to timeout on droplet (at times force shutting ssh connection to droplet)
+* Original world happiness report had missing data points for a few countries and didn't include data at all for some countries
+* Search button (not bar) on /map has no function
+* Takes extensive time to load each country

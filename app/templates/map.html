@@ -37,6 +37,13 @@ p04
         <div class="plotLegend"></div>
     </div>
 
+<div class="map-legend">
+  <h4>Legend</h4>
+  The map is color coded by the most recent level of hapiness for the country with green being the best and red being the worst. If a country is grayed out, it means that there is no data for that country.
+</div>
+	
+
+
     <script src="static/js/search.js"></script>
     <script src="static/js/main.js"></script>
 
@@ -60,9 +67,7 @@ p04
                     defaultArea: {
                         eventHandlers: {
                             click: function (e, id, mapElem, textElem) {
-                                console.log(id);
-                                alert(id); 
-                                return id;
+
                             }
                         }
                     }
