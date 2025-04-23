@@ -67,7 +67,7 @@ def country(country):
         avg = calculate_rankings(country)
         stars = round(avg)
         num_reviews = num_rankings(country)
-        return render_template('country.html', country = country, if_rank = if_rank, avg = avg, stars = stars, num_reviews = num_reviews, happiness = get_happiness_score_yearly(country), rank = get_happiness_rank_yearly(country), gdp = get_gdp_per_capita_yearly(country), freedom = get_freedom_yearly(country), health = get_health_yearly(country), corruption = get_gov_trust_yearly(country), family = get_family_yearly(country), generosity = get_generosity_yearly(country))
+        return render_template('country.html', country = country, if_rank = if_rank, avg = avg, stars = stars, num_reviews = num_reviews, happiness = get_happiness_score_yearly(country), rank = get_happiness_rank_yearly(country), gdp = get_gdp_per_capita_yearly(country), freedom = get_freedom_yearly(country), health = get_health_yearly(country), corruption = get_gov_trust_yearly(country), family = get_family_yearly(country), generosity = get_generosity_yearly(country), score2 = get_happiness_score(2019, country), rank2 = get_happiness_rank(2019, country), gdp2 = get_gdp_capita(2019, country), health2 = get_health(2019, country), family2 = get_family(2019, country), freedom2 = get_freedom(2019, country), gov2 = get_gov_trust(2019, country), gen2 = get_generosity(2019, country))
     else:
         session["error"] = "Country does not have data"
         return redirect(url_for("map"))
