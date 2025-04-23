@@ -131,3 +131,9 @@ kyleL -- 2025-04-22 21:11
 margieC -- 2025-04-22 22:33
   - added markers to graphs
   - added blurbs to each section, indicating upper and lower bounds for the year
+
+andyS -- 2025-04-22 23:47
+  - made map have colors relative to most recent happiness score
+  - added new mongo access methods and color converter
+  - updated website config files and requirements
+  - updated design doc with most recent updates

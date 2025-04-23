@@ -3,3 +3,5 @@ flask~=3.0.3
 pymongo~=4.10.1
 pandas~=2.2.3
 numpy~=2.2.4
+uWSGI~=2.0.29
+
