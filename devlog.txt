@@ -87,6 +87,10 @@ andyS -- 2025-04-11 1:19
 andyS -- 2025-04-12 3:23
   - created review system in database
 
+margieC -- 2025-04-11 11:28
+  - finished register page
+  - added JS for register page
+
 andyS -- 2025-04-19 17:45
   - made working app on zandy.tech
   - configured working app with localhost runability
@@ -110,12 +114,20 @@ andyS -- 2025-04-21 11:46
   - started ranking return function
   - started profile.html to display reviews
 
+margieC -- 2025-04-22 19:32
+  - made simple line charts for each category
+  - fixed scaling, axes, and labeling 
+
+kyleL -- 2025-04-22 21:11
+  - Added additional CSS
+  - Additional fixes to the map
+
+margieC -- 2025-04-22 22:33
+  - added markers to graphs
+  - added blurbs to each section, indicating upper and lower bounds for the year
+
 andyS -- 2025-04-21 23:31
   - finished ranking return system
   - finished profile.html with number of reviews and review list
   - created functional link between local and zandy.tech
   - started work on converting strings to their decimal/integer alternatives
-
-kyleL -- 2025-04-22 21:11
-  - Added additional CSS
-  - Additional fixes to the map
