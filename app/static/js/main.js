@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a class="nav-link" href="/map">Map</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/profile">Reviews</a>
+        <a class="nav-link" href="/profile">Profile</a>
       </li>
     </ul>
 
