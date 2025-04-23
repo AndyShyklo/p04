@@ -46,6 +46,7 @@ h1{
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
     border-radius: 0.5rem;
+    margin-top: 30px;
 }
 
 @media (max-width: 768px) {
