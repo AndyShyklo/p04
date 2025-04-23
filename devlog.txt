@@ -114,6 +114,12 @@ andyS -- 2025-04-21 11:46
   - started ranking return function
   - started profile.html to display reviews
 
+andyS -- 2025-04-21 23:31
+  - finished ranking return system
+  - finished profile.html with number of reviews and review list
+  - created functional link between local and zandy.tech
+  - started work on converting strings to their decimal/integer alternatives
+
 margieC -- 2025-04-22 19:32
   - made simple line charts for each category
   - fixed scaling, axes, and labeling 
@@ -126,8 +132,8 @@ margieC -- 2025-04-22 22:33
   - added markers to graphs
   - added blurbs to each section, indicating upper and lower bounds for the year
 
-andyS -- 2025-04-21 23:31
-  - finished ranking return system
-  - finished profile.html with number of reviews and review list
-  - created functional link between local and zandy.tech
-  - started work on converting strings to their decimal/integer alternatives
+andyS -- 2025-04-22 23:47
+  - made map have colors relative to most recent happiness score
+  - added new mongo access methods and color converter
+  - updated website config files and requirements
+  - updated design doc with most recent updates
