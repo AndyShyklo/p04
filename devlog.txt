@@ -115,3 +115,7 @@ andyS -- 2025-04-21 23:31
   - finished profile.html with number of reviews and review list
   - created functional link between local and zandy.tech
   - started work on converting strings to their decimal/integer alternatives
+
+kyleL -- 2025-04-22 21:11
+  - Added additional CSS
+  - Additional fixes to the map
