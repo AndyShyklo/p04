@@ -56,5 +56,5 @@ function grow(){
     globe.style.transform = "scale(6)";
     globe.style.backgroundPosition = `${globePosX + 1000}px ${globePosY + 50}px`;
     globe.style.transition = "1s";
-    setTimeout(function() { window.location.href = "map" }, 900);
+    setTimeout(function() { window.location.href = "map"; globe.style.transition = "0s"; }, 900);
 }
