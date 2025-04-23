@@ -14,6 +14,9 @@
 ## Description:
 <mark style="background: #BBFABBA6;">JOY ACROSS BORDERS 🔥🔥😵‍💫</mark> is a interactive platform meant to serve information regarding every country for every type of human from vacation travelers to rogue individuals seeking asylum in foreign land. Our vision of the site is to create an interactive map where clicking on any country in the world will show a general overview of the country, and graphs relating to happiness, life expectancy, etc. Users will also be able to leave ratings on each country based on factors that are up to their personal discretion, allowing for users to look beyond the numbers and see what fellow humans have to say about each piece of land.
 
+## Website URL:
+https://zandy.tech
+
 ## Install Guide
 ### Recommended Method: 
 We recommend to do this procedure using the Git Clone method. Click the green button in the top right that says "Code". Then, choose "SSH" in the dropdown that appears and copy the URL that is given. Finally, open up your terminal, cd into wherever you desire to hold the folder. Then, type 
