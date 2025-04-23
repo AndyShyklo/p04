@@ -222,13 +222,10 @@ p04
                 map: {
                     name: "world_countries_mercator",
                     defaultArea: {
-                        eventHandlers: {
-                            click: function (e, id, mapElem, textElem) {
-                                const name = countryNames[id];
-                                console.log(name);
-                                alert(name); 
-                                return name;
-                            }
+                        attrs: {
+                            fill: "#fff",
+                            stroke: "#232323",
+                            "stroke-width": 0.3
                         }
                     }
                 },
